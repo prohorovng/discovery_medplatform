@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Медична Платформа — Discovery Record</title>
+<title>MedPlatform — Актуалізований Discovery Record</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -167,8 +167,8 @@ section + section { border-top: 1px solid var(--rule); }
   font-size: .67rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
   padding: .2rem .55rem; border-radius: 2px;
 }
-.tag-mvp1 { background: #E8F4EC; color: #1A5E2A; border: 1px solid #9BCBA8; }
-.tag-mvp2 { background: #EEF4FB; color: #1A3D6E; border: 1px solid #94B8DC; }
+.tag-v-one { background: #E8F4EC; color: #1A5E2A; border: 1px solid #9BCBA8; }
+.tag-next { background: #EEF4FB; color: #1A3D6E; border: 1px solid #94B8DC; }
 .tag-v3   { background: #F5F0FF; color: #4A2585; border: 1px solid #B5A0D8; }
 .tag-open { background: #FEF9ED; color: #7A4B00; border: 1px solid #D4AC50; }
 .tag-high { background: #FDEEEA; color: #8B2215; border: 1px solid #E8A090; }
@@ -532,1358 +532,224 @@ footer strong { color: #B0CCE0; }
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <div class="nav-logo">Медична <span>Платформа</span> · Discovery</div>
+  <div class="nav-logo">MedPlatform <span>V1</span></div>
   <ul class="nav-links">
     <li><a href="#need">Потреба</a></li>
     <li><a href="#concept">Концепція</a></li>
     <li><a href="#modules">Модулі</a></li>
     <li><a href="#roles">Ролі</a></li>
-    <li><a href="#model">Бізнес-модель</a></li>
-    <li><a href="#mvp">MVP</a></li>
+    <li><a href="#model">Фінанси</a></li>
+    <li><a href="#scope">V1</a></li>
     <li><a href="#wireframes">Вайрфрейми</a></li>
     <li><a href="#risks">Ризики</a></li>
-    <li><a href="#assumptions">Припущення</a></li>
-    <li><a href="#next">Наступні кроки</a></li>
+    <li><a href="#decisions">Рішення</a></li>
+    <li><a href="#next">Delivery</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div class="container">
-    <div class="hero-tag">Discovery Record · Ideation Session</div>
-    <h1 class="fade">Медична Онлайн<br><em>Платформа</em></h1>
-    <p class="hero-sub fade">Структурований BA-запис концептуальної сесії. Усі позначки [ПРИПУЩЕННЯ] та [ВІДКРИТО] потребують підтвердження стейкхолдерів.</p>
+    <div class="hero-tag">MedPlatform · Актуалізований Discovery Record</div>
+    <h1 class="fade">Початкова робоча<br><em>версія платформи</em></h1>
+    <p class="hero-sub fade">MedPlatform — PWA/web-платформа для онлайн-консультацій з верифікованими медичними спеціалістами, підписного відеоконтенту, реферальної системи, оплати консультацій, розрахунку комісій, лікарських виплат і базового адміністративного управління.</p>
     <div class="hero-meta fade">
-      <div class="meta-item"><div class="label">Тип наради</div><div class="value">Discovery · Concept Ideation</div></div>
-      <div class="meta-item"><div class="label">Статус</div><div class="value">BA-структурований документ</div></div>
+      <div class="meta-item"><div class="label">Документ</div><div class="value">Актуалізований Discovery / Scope Record</div></div>
+      <div class="meta-item"><div class="label">Обсяг</div><div class="value">V1 «версия один»</div></div>
+      <div class="meta-item"><div class="label">Стан</div><div class="value">Після уточнення scope, фінансової логіки, реферальної системи та delivery-підходу</div></div>
     </div>
-    <div class="hero-badge">Конфіденційно — внутрішній документ Discovery-фази</div>
+    <div class="hero-badge">Погоджений робочий обсяг для V1 «версия один»</div>
   </div>
 </div>
 
-<!-- ══ 1. ПОТРЕБА ══ -->
 <section id="need">
   <div class="container">
     <div class="section-label">01 / Business Need</div>
     <h2 class="section-title">Бізнес-потреба та постановка проблеми</h2>
-    <p class="section-lead">Пацієнти, яким потрібна медична консультація, змушені шукати спеціалістів через розрізнені канали: сайти клінік, соціальні мережі, особисті знайомства. Єдиного маркетплейсу з верифікованими лікарями, прозорими цінами та онлайн-бронюванням усіх спеціальностей — не існує.</p>
-
-
+    <p class="section-lead">Потрібна не просто вітрина лікарів, а робоча платформа для онлайн-консультацій широкого спектра медичних спеціалістів. Фокус V1 «версия один» — швидко запустити робочу PWA/web-версію, перевірити повний end-to-end сценарій і перейти до комерційної експлуатації.</p>
     <div class="need-grid">
-      <div class="need-item">
-        <div class="need-icon">🏥</div>
-        <div>
-          <h4>Закриті екосистеми клінік</h4>
-          <p>OxiMedica, BasisMed та інші мають онлайн-консультації виключно зі своїми лікарями. Відкритого маркетплейсу немає.</p>
-        </div>
-      </div>
-      <div class="need-item">
-        <div class="need-icon">🌍</div>
-        <div>
-          <h4>Українці за кордоном</h4>
-          <p>Консультація у Європі — €50–100. Українські лікарі недоступні через надійний канал. Гігантський незакритий попит.</p>
-        </div>
-      </div>
-      <div class="need-item">
-        <div class="need-icon">👨</div>
-        <div>
-          <h4>Бар'єр для чоловіків</h4>
-          <p>Чоловіки уникають фізичних візитів до клініки. Онлайн-консультація знижує психологічний бар'єр до звернення по допомогу.</p>
-        </div>
-      </div>
-      <div class="need-item">
-        <div class="need-icon">🕐</div>
-        <div>
-          <h4>Проблема доступності</h4>
-          <p>Лікар у поліклініці — з 10:00 до 12:00. Пацієнт не може підлаштуватись. Платформа дозволяє консультацію в будь-який зручний час.</p>
-        </div>
-      </div>
-      <div class="need-item">
-        <div class="need-icon">📊</div>
-        <div>
-          <h4>Конкурентний контекст: Helsi</h4>
-          <p>~2 млн MAU, але складна реєстрація (багато кліків), немає відкритого маркетплейсу спеціалістів, немає контент-продуктів.</p>
-        </div>
-      </div>
-      <div class="need-item">
-        <div class="need-icon">⏰</div>
-        <div>
-          <h4>Вікно можливостей</h4>
-          <p>«Якщо ми це не зробимо зараз — через рік таких платформ буде декілька. За рік маємо зайняти нішу так, що іншим не матиме сенсу заходити.»</p>
-        </div>
-      </div>
-    </div>
-
-    <div style="margin-top:2rem;">
-      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--navy);margin-bottom:1rem;">Бізнес-цілі</h3>
-      <ul style="list-style:none;">
-        <li style="padding:.5rem 0;border-bottom:1px dashed var(--rule);font-size:.88rem;display:flex;gap:.8rem;"><span style="color:var(--accent);font-weight:700;">01</span> Зайняти позицію першовідкривача у сегменті all-specialist онлайн-консультацій в Україні</li>
-        <li style="padding:.5rem 0;border-bottom:1px dashed var(--rule);font-size:.88rem;display:flex;gap:.8rem;"><span style="color:var(--accent);font-weight:700;">02</span> Монетизувати як нейтральний посередник: комісія з консультацій + підписка на контент-продукти</li>
-        <li style="padding:.5rem 0;border-bottom:1px dashed var(--rule);font-size:.88rem;display:flex;gap:.8rem;"><span style="color:var(--accent);font-weight:700;">03</span> Надати лікарям незалежний канал заробітку (не працюючи на клініку)</li>
-        <li style="padding:.5rem 0;border-bottom:1px dashed var(--rule);font-size:.88rem;display:flex;gap:.8rem;"><span style="color:var(--accent);font-weight:700;">04</span> Забезпечити UX простіший за Helsi: мінімум кліків, максимум ясності</li>
-        <li style="padding:.5rem 0;font-size:.88rem;display:flex;gap:.8rem;"><span style="color:var(--accent);font-weight:700;">05</span> Довгострокова мета — залучення міжнародних пацієнтів (діаспора + Європа)</li>
-      </ul>
+      <div class="need-item"><div class="need-icon">01</div><div><h4>Широкий спектр спеціалістів</h4><p>Стартовий перелік напрямів не обмежує архітектуру платформи.</p></div></div>
+      <div class="need-item"><div class="need-icon">02</div><div><h4>Простий шлях пацієнта</h4><p>Мінімум кліків, мінімум переходів, зрозумілий UX навіть для користувача старшого віку.</p></div></div>
+      <div class="need-item"><div class="need-icon">03</div><div><h4>Повний консультаційний сценарій</h4><p>Пошук, бронювання, підтвердження лікаря, оплата, Zoom-посилання, консультація, відгук і фінальний статус транзакції.</p></div></div>
+      <div class="need-item"><div class="need-icon">04</div><div><h4>Фінансова прозорість</h4><p>Комісія платформи, сума лікаря, реферальні бонуси та статуси транзакцій видимі відповідним ролям.</p></div></div>
+      <div class="need-item"><div class="need-icon">05</div><div><h4>Підписний відеоконтент</h4><p>Користувач оплачує доступ до відеопрограм на визначений період; контент додає адміністратор.</p></div></div>
+      <div class="need-item"><div class="need-icon">06</div><div><h4>Адміністративний контроль</h4><p>Адмін перевіряє лікарів, транзакції, комісії, підписки, реферальні нарахування і спірні ситуації.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ══ 2. КОНЦЕПЦІЯ ══ -->
 <section id="concept">
   <div class="container">
     <div class="section-label">02 / Solution Concept</div>
     <h2 class="section-title">Концепція рішення</h2>
-
-    <div class="callout gold">
-      <p><strong>Ключове рішення:</strong> Двостороній маркетплейс (лікар ↔ пацієнт), що діє як нейтральний посередник. Платформа не наймає лікарів, не втручається у клінічний процес та не несе відповідальності за медичні результати. Відповідальність обмежена: конфіденційність даних, коректність верифікованої інформації, доступність платформи.</p>
-    </div>
-
-    <div class="roles-grid" style="margin-top:1.5rem;">
-      <div style="background:var(--white);border:1px solid var(--rule);padding:1.3rem;">
-        <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);margin-bottom:.5rem;">Технічна форма</div>
-        <p style="font-size:.88rem;color:#3A4A5A;line-height:1.7;"><strong>PWA (Progressive Web App)</strong> — доступний з браузера на десктопі та мобільному; встановлюється як ярлик з браузера. Відеоконсультації через <strong>Zoom API</strong> — власний відеопротокол не розробляється.</p>
-      </div>
-      <div style="background:var(--white);border:1px solid var(--rule);padding:1.3rem;">
-        <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);margin-bottom:.5rem;">Реєстрація та захист</div>
-        <p style="font-size:.88rem;color:#3A4A5A;line-height:1.7;">Реєстрація пацієнтів — <strong>тільки за номером телефону</strong>. Email та Telegram виключені як недостатній захист від масових фейків. Лікарі — верифікація через завантаження документів + ручна перевірка адміном.</p>
-      </div>
-    </div>
-
-    <div style="margin-top:2rem;">
-      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--navy);margin-bottom:1rem;">Аналіз конкурентів</h3>
-    <div class="comp-grid">
-      <div class="comp-card">
-        <h4>Helsi</h4>
-        <div class="comp-label">Перевага</div>
-        <div class="comp-strength">~2 млн MAU, впізнаваність бренду, державна інтеграція</div>
-        <div class="comp-label" style="margin-top:.5rem;">Прогалина / Можливість</div>
-        <div class="comp-gap">Складний UX, немає відкритого маркетплейсу, немає контент-продуктів</div>
-      </div>
-      <div class="comp-card">
-        <h4>Приватні клініки (OxiMedica, BasisMed)</h4>
-        <div class="comp-label">Перевага</div>
-        <div class="comp-strength">Відомий бренд, контроль якості</div>
-        <div class="comp-label" style="margin-top:.5rem;">Прогалина / Можливість</div>
-        <div class="comp-gap">Закрита екосистема — тільки власні лікарі, немає маркетплейс-динаміки</div>
-      </div>
-      <div class="comp-card">
-        <h4>Платформа «Психологи Києва»</h4>
-        <div class="comp-label">Перевага</div>
-        <div class="comp-strength">Глибина в ніші психології</div>
-        <div class="comp-label" style="margin-top:.5rem;">Прогалина / Можливість</div>
-        <div class="comp-gap">Одна спеціальність, не повноцінна медична платформа</div>
-      </div>
-      <div class="comp-card" style="border-left:3px solid var(--low);">
-        <h4>Ніхто з конкурентів</h4>
-        <div class="comp-label">Ринкова можливість</div>
-        <div class="comp-strength" style="color:var(--low);">Комбінація all-specialty маркетплейс + контент-продукти + реферальна система + мультимовність не існує в Україні.</div>
-      </div>
-    </div>
+    <div class="callout gold"><p><strong>Ключове рішення:</strong> двостороння PWA/web-платформа, де пацієнт знаходить спеціаліста, лікар підтверджує консультацію, а платформа керує оплатою, статусами, комісіями, реферальною логікою, підписками та базовою операційною модерацією.</p></div>
+    <div class="roles-grid">
+      <div class="role-card"><h3>PWA/web</h3><div class="role-tag">Technical form</div><ul><li>Цільове рішення для V1 «версия один»</li><li>Native iOS/Android apps не входять</li><li>App Store / Google Play publication не входить</li></ul></div>
+      <div class="role-card"><h3>Zoom flow</h3><div class="role-tag">Manual link</div><ul><li>Лікар створює Zoom-посилання у власному акаунті</li><li>Лікар вставляє посилання в платформу</li><li>Пацієнт бачить посилання в кабінеті та отримує email</li></ul></div>
+      <div class="role-card"><h3>Відео-обмеження</h3><div class="role-tag">Out of scope</div><ul><li>Автоматичне створення Zoom-посилання через інтеграцію не входить</li><li>Власний відеодзвінок не розробляється</li><li>Запис, транскрибація і зберігання Zoom-консультацій не входять</li></ul></div>
+      <div class="role-card"><h3>Email</h3><div class="role-tag">Notifications</div><ul><li>Повідомлення лікаря про консультацію</li><li>Нагадування за 1 годину</li><li>Zoom-посилання та статуси оплат/скасувань/підписок</li></ul></div>
     </div>
   </div>
 </section>
 
-<!-- ══ 3. МОДУЛІ ══ -->
 <section id="modules">
   <div class="container">
     <div class="section-label">03 / Solution Scope</div>
-    <h2 class="section-title">Модулі платформи</h2>
-    <p class="section-lead">Пріоритет потребує формального підтвердження через MoSCoW або аналог.</p>
-
+    <h2 class="section-title">Модулі V1 «версия один»</h2>
+    <p class="section-lead">Документ відображає останні рішення щодо запуску, обсягу, фінансової логіки, реферальної системи, консультацій, підписок і delivery-підходу.</p>
     <table class="modules-table">
-      <thead>
-        <tr>
-          <th style="width:18%">Модуль</th>
-          <th style="width:32%">Опис</th>
-          <th style="width:22%">Монетизація</th>
-          <th style="width:14%">Пріоритет</th>
-          <th style="width:14%">Версія</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Модуль</th><th>Опис</th><th>Логіка</th><th>Обсяг</th></tr></thead>
       <tbody>
-        <tr>
-          <td>Онлайн-консультації</td>
-          <td>Усі медичні спеціальності. Лікарі самостійно реєструються, подають документи, проходять верифікацію. Пошук за спеціальністю, рейтингом, мовою, ціною, доступністю.</td>
-          <td class="mono">Комісія з консультації</td>
-          <td><span class="tag tag-mvp1">Must Have</span></td>
-          <td class="mono">MVP v1</td>
-        </tr>
-        <tr>
-          <td>Відеоконсультації (Zoom)</td>
-          <td>Лікар задає слоти (тривалість, час). Пацієнт бронює і платить. Сесія через Zoom API.</td>
-          <td class="mono">Включено в комісію</td>
-          <td><span class="tag tag-mvp1">Must Have</span></td>
-          <td class="mono">MVP v1</td>
-        </tr>
-        <tr>
-          <td>Рейтинг і відгуки</td>
-          <td>Рейтинг формується з оцінок пацієнтів після консультацій. Адмін може видаляти шахрайські відгуки. Платне підняття в списку після органічного топ-5.</td>
-          <td class="mono">Платне просування</td>
-          <td><span class="tag tag-mvp1">Must Have</span></td>
-          <td class="mono">MVP v1</td>
-        </tr>
-        <tr>
-          <td>Верифікація лікарів</td>
-          <td>Завантаження документів (диплом, ліцензія, сертифікати). Перевірка адміном. Автоматичне призупинення при закінченні терміну дії — лікар має повторно підтвердити документи.</td>
-          <td class="mono">Операційні витрати</td>
-          <td><span class="tag tag-mvp1">Must Have</span></td>
-          <td class="mono">MVP v1</td>
-        </tr>
-        <tr>
-          <td>Медичні записи пацієнта</td>
-          <td>Пацієнти завантажують результати аналізів, знімки (МРТ, КТ, УЗД) до або під час консультації. Доступ лікаря — тільки за запитом.</td>
-          <td class="mono">Включено</td>
-          <td><span class="tag tag-mvp1">Must Have</span></td>
-          <td class="mono">MVP v1</td>
-        </tr>
-        <tr>
-          <td>Реферальна система</td>
-          <td>Адаптація існуючої реферальної системи. Пацієнти отримують знижки, реферери — винагороду.</td>
-          <td class="mono">Зниження CAC</td>
-          <td><span class="tag tag-mvp1">Must Have</span></td>
-          <td class="mono">MVP v1</td>
-        </tr>
-        <tr>
-          <td>Програми вправ</td>
-          <td>Готові програми (вже розроблені). Щомісячна підписка. Спеціалісти можуть завантажувати та продавати власні програми.</td>
-          <td class="mono">Підписка + Revenue share</td>
-          <td><span class="tag tag-mvp2">Should Have</span></td>
-          <td class="mono">MVP v2</td>
-        </tr>
-        <tr>
-          <td>Психотерапія</td>
-          <td>Окремий розділ для психологів та психотерапевтів. Аналогічний флоу бронювання, але окрема точка входу.</td>
-          <td class="mono">Комісія з сесії</td>
-          <td><span class="tag tag-mvp2">Should Have</span></td>
-          <td class="mono">MVP v2</td>
-        </tr>
-        <tr>
-          <td>Нутриціологія</td>
-          <td>Нутриціологи пов'язують плани харчування з програмами вправ. Спеціалісти продають власні програми.</td>
-          <td class="mono">Підписка + Revenue share</td>
-          <td><span class="tag tag-mvp2">Should Have</span></td>
-          <td class="mono">MVP v2</td>
-        </tr>
-        <tr>
-          <td>База знань</td>
-          <td>Медична довідкова база для лікарів і студентів. AI-пошук за запитом. Спеціалісти можуть додавати платний контент.</td>
-          <td class="mono">Підписка</td>
-          <td><span class="tag tag-mvp2">Should Have</span></td>
-          <td class="mono">MVP v2</td>
-        </tr>
-        <tr>
-          <td>Кошик / Мульти-бронювання</td>
-          <td>Пацієнт додає декілька консультацій у кошик і сплачує одним платежем.</td>
-          <td class="mono">UX-фічер</td>
-          <td><span class="tag tag-mvp2">Could Have</span></td>
-          <td class="mono">v2 / Backlog</td>
-        </tr>
-        <tr>
-          <td>Інтеграція з лабораторіями</td>
-          <td>Партнерство з мережею лабораторій. Лікар призначає аналізи з платформи. Результати автоматично надходять до лікаря.</td>
-          <td class="mono">Партнерський дохід [TBD]</td>
-          <td><span class="tag tag-v3">Could Have</span></td>
-          <td class="mono">v3</td>
-        </tr>
-        <tr>
-          <td>Онлайн-курси</td>
-          <td>Лікарі та спеціалісти публікують і продають освітні курси.</td>
-          <td class="mono">Revenue share з продажів</td>
-          <td><span class="tag tag-v3">Could Have</span></td>
-          <td class="mono">v3</td>
-        </tr>
-        <tr>
-          <td>AI-тріаж пацієнта</td>
-          <td>При вході пацієнт спілкується з AI, який рекомендує до яких спеціалістів звернутися на основі симптомів.</td>
-          <td class="mono">Платформна фіча</td>
-          <td><span class="tag tag-v3">Won't (v1)</span></td>
-          <td class="mono">v3</td>
-        </tr>
-        <tr>
-          <td>Косметологія</td>
-          <td>Окремий напрямок онлайн-консультацій. Описана як потенційна окрема ніша.</td>
-          <td class="mono">Комісія з сесії</td>
-          <td><span class="tag tag-v3">Won't (v1)</span></td>
-          <td class="mono">v3</td>
-        </tr>
+        <tr><td>Реєстрація пацієнта</td><td>Телефон, email для повідомлень, дата народження, стать, місто, паспортні дані, ІПН/податковий номер, банківська карта. Медична історія не потрібна; юридичні згоди обов'язкові.</td><td class="mono">Передумова оплати</td><td><span class="tag tag-v-one">V1</span></td></tr>
+        <tr><td>Реєстрація лікаря</td><td>Лікар завантажує диплом, ліцензію, сертифікати. Адміністратор перевіряє документи; лікар не активний до підтвердження.</td><td class="mono">Verification</td><td><span class="tag tag-v-one">V1</span></td></tr>
+        <tr><td>Кабінет пацієнта</td><td>Профіль, консультації, оплати, Zoom-посилання, медичні файли, підписки, реферальний баланс, історія статусів.</td><td class="mono">Patient flow</td><td><span class="tag tag-v-one">V1</span></td></tr>
+        <tr><td>Кабінет лікаря</td><td>Профіль, документи, графік, ціна, тривалість, мови, прапорець термінових консультацій, консультації, Zoom-посилання, суми до виплати, реферальні бонуси.</td><td class="mono">Doctor flow</td><td><span class="tag tag-v-one">V1</span></td></tr>
+        <tr><td>Пошук і спеціальності</td><td>Фільтри: спеціальність, ціна, рейтинг, мова, доступні години, прізвище, термінова консультація. Стартові напрями: психолог/психотерапевт, психіатр, нутриціолог/дієтолог, реабілітолог, сімейний лікар/терапевт, ендокринолог, дерматолог/косметолог, невролог, гастроентеролог, уролог.</td><td class="mono">Discovery</td><td><span class="tag tag-v-one">V1</span></td></tr>
+        <tr><td>Стандартне бронювання</td><td>Лікар задає графік, слоти, тривалість і ціну. Пацієнт обирає лікаря і слот; лікар отримує email, підтверджує консультацію, пацієнт оплачує, лікар додає Zoom-посилання.</td><td class="mono">Commission</td><td><span class="tag tag-v-one">V1</span></td></tr>
+        <tr><td>Термінова консультація</td><td>Пацієнт створює швидкий запит до конкретного лікаря або до доступних лікарів. Флоу: запит → підтвердження лікаря → оплата → старт консультації.</td><td class="mono">Commission</td><td><span class="tag tag-v-one">V1</span></td></tr>
+        <tr><td>Оплата і статуси</td><td>Кошти надходять на рахунок платформи. До фінального статусу транзакції фінальні нарахування не виконуються.</td><td class="mono">Platform account</td><td><span class="tag tag-v-one">V1</span></td></tr>
+        <tr><td>Комісія платформи</td><td>Є дефолтний відсоток; адміністратор може встановити індивідуальну комісію лікаря. Зміни діють тільки для нових консультацій і зберігаються в історії.</td><td class="mono">% commission</td><td><span class="tag tag-v-one">V1</span></td></tr>
+        <tr><td>Виплати лікарям</td><td>Цільова логіка — автоматизована виплата після фінального рішення транзакції. Якщо банк/провайдер не підтримує автоматизацію на старті, це тимчасове операційне обмеження.</td><td class="mono">Payout</td><td><span class="tag tag-v-one">V1</span></td></tr>
+        <tr><td>Реферальна система</td><td>Нарахування для пацієнтів і бонуси для лікарів, якщо лікар запросив пацієнта. Нарахування не фінальні до фінального статусу транзакції; баланс видимий користувачу.</td><td class="mono">Bonuses</td><td><span class="tag tag-v-one">V1</span></td></tr>
+        <tr><td>Медичні файли</td><td>PDF і фото до 25 MB. Доступ надається конкретному лікарю в межах конкретної консультації. DICOM, MRI/CT, великі архіви та файли понад 25 MB не входять.</td><td class="mono">AWS storage</td><td><span class="tag tag-v-one">V1</span></td></tr>
+        <tr><td>Відеоконтент</td><td>Підписка на пакет/категорію/програму. Відео тільки онлайн; завантаження вимкнене. Ціну і контент задає адміністратор.</td><td class="mono">Subscription</td><td><span class="tag tag-v-one">V1</span></td></tr>
+        <tr><td>Рейтинги та адмін-панель</td><td>Відгук після завершеної консультації; модерація фроду. Адмін керує лікарями, статусами, транзакціями, комісіями, реферальними нарахуваннями, підписками і спорами.</td><td class="mono">Operations</td><td><span class="tag tag-v-one">V1</span></td></tr>
       </tbody>
     </table>
   </div>
 </section>
 
-<!-- ══ 4. РОЛІ ══ -->
 <section id="roles">
   <div class="container">
     <div class="section-label">04 / Stakeholder Roles</div>
     <h2 class="section-title">Ролі користувачів</h2>
-
     <div class="roles-grid">
-      <div class="role-card">
-        <h3>Пацієнт</h3>
-        <div class="role-tag">Primary User · Patient</div>
-        <ul>
-          <li>Реєстрація тільки за номером телефону</li>
-          <li>Пошук лікаря за спеціальністю / рейтингом / мовою / ціною</li>
-          <li>Бронювання та оплата консультацій</li>
-          <li>Завантаження медичних записів (аналізи, знімки)</li>
-          <li>Доступ до підписних контент-продуктів</li>
-          <li>Використання реферальної системи</li>
-          <li>Виставлення оцінок та відгуків після консультації</li>
-        </ul>
-      </div>
-      <div class="role-card doctor">
-        <h3>Лікар / Спеціаліст</h3>
-        <div class="role-tag">Supply Side · Doctor</div>
-        <ul>
-          <li>Реєстрація + завантаження документів (диплом, ліцензія)</li>
-          <li>Налаштування розкладу, цін, тривалості сесії</li>
-          <li>Проведення відеоконсультацій через Zoom</li>
-          <li>Перегляд медичних записів пацієнта (за дозволом)</li>
-          <li>Завантаження та продаж власного контенту</li>
-          <li>Автоматичне отримання виплат наприкінці дня</li>
-          <li>Вказання мов консультацій</li>
-        </ul>
-      </div>
-      <div class="role-card admin">
-        <h3>Адміністратор платформи</h3>
-        <div class="role-tag">Operations · Admin</div>
-        <ul>
-          <li>Перевірка та затвердження / відхилення документів лікарів</li>
-          <li>Управління сповіщеннями про закінчення ліцензій</li>
-          <li>Модерація відгуків та рейтингів</li>
-          <li>Управління платними просуваннями</li>
-          <li>Контроль виплат та вирішення спорів</li>
-          <li>Налаштування платформи</li>
-        </ul>
-      </div>
-      <div class="role-card">
-        <h3>Нутриціолог / Тренер</h3>
-        <div class="role-tag">Specialist Subset · Content Creator <span class="tag tag-open" style="margin-left:.3rem;">ПРИПУЩЕННЯ</span></div>
-        <ul>
-          <li>Всі можливості ролі Лікаря</li>
-          <li>Створення та продаж програм вправ / харчування</li>
-          <li>Прив'язка нутриціологічних планів до фізичних вправ</li>
-          <li><em style="color:#8A9AA8;">Окрема роль чи підтип ролі Лікаря — на погодження</em></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="callout" style="margin-top:1.5rem;">
-      <p><strong>Обмеження реєстрації:</strong> Пацієнти — лише номер телефону. Реєстрація через email і Telegram явно виключена як недостатній захист від масових фейків. Акаунти лікарів стають активними лише після верифікації документів адміністратором.</p>
+      <div class="role-card"><h3>Пацієнт</h3><div class="role-tag">Primary User</div><ul><li>Реєстрація з повним набором даних</li><li>Вибір лікаря, слоту або термінового запиту</li><li>Оплата консультації та отримання Zoom-посилання</li><li>Завантаження PDF/фото до 25 MB і надання доступу лікарю</li><li>Підписка на відеопрограми</li><li>Перегляд і використання реферального балансу за затвердженою фінансовою логікою</li></ul></div>
+      <div class="role-card doctor"><h3>Лікар / спеціаліст</h3><div class="role-tag">Supply Side</div><ul><li>Завантаження диплома, ліцензії, сертифікатів</li><li>Очікування підтвердження адміністратором</li><li>Налаштування графіка, ціни, тривалості, мов</li><li>Прапорець «надає термінові консультації»</li><li>Підтвердження консультації</li><li>Створення Zoom-посилання у власному акаунті</li><li>Перегляд статусів і розрахунку виплати</li></ul></div>
+      <div class="role-card admin"><h3>Адміністратор</h3><div class="role-tag">Operations</div><ul><li>Верифікація лікарів</li><li>Індивідуальні комісії та історія змін</li><li>Відеопрограми і ціни</li><li>Статуси транзакцій і спірні ситуації</li><li>Реферальні нарахування</li><li>Юридичні згоди і модерація відгуків</li></ul></div>
+      <div class="role-card"><h3>Медичний напрям</h3><div class="role-tag">Specialty</div><ul><li>Нутриціолог, реабілітолог, дерматолог/косметолог та інші напрями є спеціальностями</li><li>Зовнішні спеціалісти не додають і не продають власний контент у V1 «версия один»</li></ul></div>
     </div>
   </div>
 </section>
 
-<!-- ══ 5. БІЗНЕС-МОДЕЛЬ ══ -->
 <section id="model">
   <div class="container">
     <div class="section-label">05 / Business Model</div>
-    <h2 class="section-title">Бізнес-модель та платіжний флоу</h2>
-
-    <h3 style="font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:1rem;">Потоки доходів</h3>
-    <div class="roles-grid" style="margin-bottom:2rem;">
-      <div style="background:var(--white);border:1px solid var(--rule);padding:1.2rem;border-top:3px solid var(--blue);">
-        <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);margin-bottom:.4rem;">01</div>
-        <div style="font-size:.95rem;font-weight:600;color:var(--navy);margin-bottom:.3rem;">Комісія з консультацій</div>
-        <p style="font-size:.82rem;color:#5A6A7A;">Платформа утримує % від кожної оплаченої консультації. Залишок отримує лікар автоматично наприкінці дня.</p>
-      </div>
-      <div style="background:var(--white);border:1px solid var(--rule);padding:1.2rem;border-top:3px solid var(--gold);">
-        <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:.4rem;">02</div>
-        <div style="font-size:.95rem;font-weight:600;color:var(--navy);margin-bottom:.3rem;">Щомісячна підписка</div>
-        <p style="font-size:.82rem;color:#5A6A7A;">Програми вправ та база знань — платний доступ за підпискою.</p>
-      </div>
-      <div style="background:var(--white);border:1px solid var(--rule);padding:1.2rem;border-top:3px solid var(--accent);">
-        <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:.4rem;">03</div>
-        <div style="font-size:.95rem;font-weight:600;color:var(--navy);margin-bottom:.3rem;">Revenue Share з контенту</div>
-        <p style="font-size:.82rem;color:#5A6A7A;">Спеціалісти продають програми та курси через платформу. Платформа утримує частку з продажів.</p>
-      </div>
-      <div style="background:var(--white);border:1px solid var(--rule);padding:1.2rem;border-top:3px solid #7A5A9A;">
-        <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7A5A9A;margin-bottom:.4rem;">04</div>
-        <div style="font-size:.95rem;font-weight:600;color:var(--navy);margin-bottom:.3rem;">Платне просування</div>
-        <p style="font-size:.82rem;color:#5A6A7A;">Лікарі можуть платити за відображення на позиціях 1–5 після органічного топ-5.</p>
-      </div>
-    </div>
-
-    <h3 style="font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:1.2rem;">Флоу виплат лікарю</h3>
-    <div class="flow-steps">
-      <div class="flow-step">
-        <div class="flow-num">1</div>
-        <h4>Оплата пацієнта</h4>
-        <p>Пацієнт оплачує консультацію через платіжну систему</p>
-      </div>
-      <div class="flow-step">
-        <div class="flow-num">2</div>
-        <h4>Розщеплення</h4>
-        <p>Кошти розподіляються: реферальний рахунок + основний рахунок</p>
-      </div>
-      <div class="flow-step">
-        <div class="flow-num">3</div>
-        <h4>Консультація</h4>
-        <p>Лікар проводить відеоконсультацію через Zoom</p>
-      </div>
-      <div class="flow-step">
-        <div class="flow-num">4</div>
-        <h4>Кінець дня</h4>
-        <p>Платформа автоматично формує запит до банку</p>
-      </div>
-      <div class="flow-step">
-        <div class="flow-num">5</div>
-        <h4>Виплата лікарю</h4>
-        <p>Банк переказує частку лікаря на його особисту картку</p>
-      </div>
-    </div>
-
-    <div class="callout warn" style="margin-top:1.5rem;">
-      <p><strong>[ВІДКРИТО — D2] Правова структура:</strong> Взаємовідносини платформи та лікаря потребують юридичного аналізу. Можливі варіанти: договір про надання послуг, агентська модель, договір підряду. Кожен має різні наслідки для оподаткування та відповідальності. Потрібна консультація юриста до початку розробки.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 6. MVP ══ -->
-<section id="mvp">
-  <div class="container">
-    <div class="section-label">06 / MVP Scope</div>
-    <h2 class="section-title">Скоп MVP — версія 1</h2>
-
-    <div class="callout gold">
-      <p><strong>Засновник явно визначив мінімальний скоп v1 як два ключові елементи:</strong><br>
-      1. Відеоконтент (програми вправ) з щомісячною підпискою<br>
-      2. Відеоконсультація лікар ↔ пацієнт через Zoom<br><br>
-      Все інше — v2 і пізніше. Це скоп для запуску, валідації та отримання першого доходу.</p>
-    </div>
-
-    <table class="mvp-table" style="margin-top:1.5rem;">
-      <thead>
-        <tr>
-          <th style="width:40%">Функціональність</th>
-          <th style="width:12%;text-align:center">v1</th>
-          <th style="width:48%">Примітка</th>
-        </tr>
-      </thead>
+    <h2 class="section-title">Бізнес-модель та платіжний flow</h2>
+    <table class="modules-table">
       <tbody>
-        <tr><td>Реєстрація лікаря + завантаження документів</td><td class="check"><span class="check-yes">✓</span></td><td style="font-size:.8rem;color:#4A5A6A;">Основа довіри маркетплейсу</td></tr>
-        <tr><td>Перевірка документів адміністратором</td><td class="check"><span class="check-yes">✓</span></td><td style="font-size:.8rem;color:#4A5A6A;">Ручний процес прийнятний на старті</td></tr>
-        <tr><td>Профіль лікаря (документи, розклад, ціни, мови)</td><td class="check"><span class="check-yes">✓</span></td><td style="font-size:.8rem;color:#4A5A6A;">Лікар управляє самостійно</td></tr>
-        <tr><td>Реєстрація пацієнта (номер телефону)</td><td class="check"><span class="check-yes">✓</span></td><td style="font-size:.8rem;color:#4A5A6A;">Основний антифрод-захід</td></tr>
-        <tr><td>Пошук за спеціальністю + фільтри + список лікарів</td><td class="check"><span class="check-yes">✓</span></td><td style="font-size:.8rem;color:#4A5A6A;">Ключовий флоу discovery</td></tr>
-        <tr><td>Бронювання + оплата (одна консультація)</td><td class="check"><span class="check-yes">✓</span></td><td style="font-size:.8rem;color:#4A5A6A;">Основний генератор доходу</td></tr>
-        <tr><td>Відеоконсультація через Zoom</td><td class="check"><span class="check-yes">✓</span></td><td style="font-size:.8rem;color:#4A5A6A;">Без власного відеостеку</td></tr>
-        <tr><td>Рейтинг і відгуки після консультації</td><td class="check"><span class="check-yes">✓</span></td><td style="font-size:.8rem;color:#4A5A6A;">Формує довіру та утримання</td></tr>
-        <tr><td>Відеоконтент програм вправ + підписка</td><td class="check"><span class="check-yes">✓</span></td><td style="font-size:.8rem;color:#4A5A6A;">Перший підписний продукт</td></tr>
-        <tr><td>Реферальна система</td><td class="check"><span class="check-yes">✓</span></td><td style="font-size:.8rem;color:#4A5A6A;">Адаптація існуючої системи</td></tr>
-        <tr><td>Завантаження медичних записів пацієнтом</td><td class="check"><span class="check-yes">✓</span></td><td style="font-size:.8rem;color:#4A5A6A;">Потрібно для клінічної цінності</td></tr>
-        <tr><td>Автоматичні щоденні виплати лікарю через банківський API</td><td class="check"><span class="check-yes">✓</span></td><td style="font-size:.8rem;color:#4A5A6A;">Ключова операційна вимога</td></tr>
-        <tr><td>Адмін-панель (модерація, виплати)</td><td class="check"><span class="check-yes">✓</span></td><td style="font-size:.8rem;color:#4A5A6A;">Мінімально необхідна операційна спроможність</td></tr>
-        <tr><td>Кошик / мульти-бронювання</td><td class="check"><span class="check-no">✗</span></td><td style="font-size:.8rem;color:#8A9AA8;">v2 Backlog</td></tr>
-        <tr><td>Психотерапія / Нутриціологія</td><td class="check"><span class="check-no">✗</span></td><td style="font-size:.8rem;color:#8A9AA8;">v2 — окремі UX-розділи</td></tr>
-        <tr><td>База знань</td><td class="check"><span class="check-no">✗</span></td><td style="font-size:.8rem;color:#8A9AA8;">v2</td></tr>
-        <tr><td>Інтеграція з лабораторіями</td><td class="check"><span class="check-no">✗</span></td><td style="font-size:.8rem;color:#8A9AA8;">v3</td></tr>
-        <tr><td>AI-тріаж пацієнта</td><td class="check"><span class="check-no">✗</span></td><td style="font-size:.8rem;color:#8A9AA8;">v3</td></tr>
+        <tr><td>1</td><td>Пацієнт обирає лікаря/слот або створює запит на термінову консультацію.</td><td class="mono">Start</td></tr>
+        <tr><td>2</td><td>Лікар підтверджує консультацію; пацієнт оплачує; кошти надходять на рахунок платформи.</td><td class="mono">Payment</td></tr>
+        <tr><td>3</td><td>Система встановлює внутрішній статус «очікує фінального рішення».</td><td class="mono">Pending</td></tr>
+        <tr><td>4</td><td>Лікар проводить консультацію через Zoom; після завершення або no-show система отримує фінальний статус.</td><td class="mono">Consultation</td></tr>
+        <tr><td>5</td><td>Тільки після фінального статусу система розраховує комісію платформи, суму лікаря, реферальні бонуси пацієнта та лікаря.</td><td class="mono">Final</td></tr>
+        <tr><td>6</td><td>Після фінального рішення запускається payout flow; якщо автоматична виплата недоступна, це тимчасове операційне обмеження.</td><td class="mono">Payout</td></tr>
       </tbody>
     </table>
+    <div class="callout warn"><p><strong>Фінансове правило:</strong> жодні фінансові нарахування не є фінальними до фінального статусу транзакції. Попередній розрахунок може відображатися як preview, але не може бути доступний до виплати або виводу.</p></div>
   </div>
 </section>
 
-<!-- ══ 7. WIREFRAMES ══ -->
+<section id="scope">
+  <div class="container">
+    <div class="section-label">06 / Rules, Legal, Scope</div>
+    <h2 class="section-title">Правила скасування, повернення та no-show</h2>
+    <table class="modules-table"><tbody>
+      <tr><td>24+ години</td><td>Повне повернення коштів, виплата лікарю не формується.</td><td class="mono">Refund</td></tr>
+      <tr><td>Менш ніж 24 години</td><td>Автоматичного повернення немає; може бути запропоноване одне перенесення.</td><td class="mono">Review</td></tr>
+      <tr><td>Patient no-show</td><td>Якщо лікар був присутній і очікував 10-15 хвилин, повернення немає, лікар має право на виплату.</td><td class="mono">Payout</td></tr>
+      <tr><td>Doctor no-show</td><td>Пацієнт отримує повне повернення або перенесення, виплата лікарю не формується.</td><td class="mono">Refund</td></tr>
+      <tr><td>Технічний інцидент</td><td>Якщо причина неочевидна або це проблема платформи/Zoom, рішення приймає адміністратор.</td><td class="mono">Admin</td></tr>
+    </tbody></table>
+
+    <h2 class="section-title" style="margin-top:3rem;">Початкова робоча версія платформи</h2>
+    <p class="section-lead">V1 «версия один» має забезпечити повний контрольний сценарій: адмін підтвердив лікаря; лікар налаштував профіль, графік і ціну; пацієнт зареєструвався, знайшов лікаря, забронював консультацію; лікар підтвердив; пацієнт оплатив; лікар додав Zoom-посилання; пацієнт отримав посилання; консультація завершена; пацієнт залишив відгук; транзакція отримала фінальний статус; система розрахувала комісію платформи, суму лікаря і реферальні нарахування.</p>
+
+    <h2 class="section-title" style="margin-top:3rem;">Юридичні згоди та дані</h2>
+    <p class="section-lead">Перед оплатою/консультацією користувач приймає згоду на обробку персональних даних, згоду на обробку медичних даних, privacy policy, terms of use, online-consultation disclaimer, payment/cancellation/refund rules. Marketing consent — optional checkbox. AWS є цільовим сховищем; доступ до файлів надається тільки конкретному лікарю в межах конкретної консультації.</p>
+
+    <h2 class="section-title" style="margin-top:3rem;">Не входить у V1 «версия один»</h2>
+    <p class="section-lead">AI features, symptom checker, AI triage, автоматичний вибір лікаря за симптомами, voice search, AI recommendations, treatment plans, medication reminders, AI follow-up, Zoom recording/transcription/storage, automatic Zoom link creation, own video-call infrastructure, native apps, App Store / Google Play publication, eHealth / ЕСОЗ, e-prescriptions, laboratory/pharmacy integrations, full electronic medical record, DICOM/MRI/CT/large files over 25 MB, knowledge base, external specialist courses, marketplace of courses/products, clinic accounts, clinic CRM, BI dashboards, complex admin roles, partner accounts, manual booking editing, advanced financial reporting/export.</p>
+  </div>
+</section>
+
 <section id="wireframes">
   <div class="container">
-    <div class="section-label">07 / Low-Fidelity Wireframes</div>
-    <h2 class="section-title">Вайрфрейми екранів (Lo-Fi)</h2>
-    <p class="section-lead">Низька деталізація. Мета — зафіксувати структуру та ключові UI-елементи. Не дизайн, не стилістика — тільки компонування.</p>
-
-    <div class="wf-intro-note">
-      ℹ УМОВНІ ПОЗНАЧЕННЯ: [ /////// ] = зображення-плейсхолдер · [ _______ ] = поле вводу · [ ▓▓▓▓▓ ] = кнопка · Пунктир = межа блоку · ← → стрілки = перехід між екранами
+    <div class="section-label">07 / Wireframes Update</div>
+    <h2 class="section-title">Вайрфрейми екранів</h2>
+    <div class="wf-intro-note">Оновлені вимоги до lo-fi екранів для V1 «версия один».</div>
+    <div class="wf-grid">
+      <div class="wf-card"><div class="wf-card-header"><span class="wf-title">WF-02 Patient Registration</span><span class="wf-num">Auth</span></div><div class="wf-annotation"><ul><li>Телефон, email, дата народження, стать, місто</li><li>Паспортні дані, ІПН/податковий номер, банківська карта</li><li>Юридичні згоди</li></ul></div></div>
+      <div class="wf-card"><div class="wf-card-header"><span class="wf-title">WF-03 Search</span><span class="wf-num">Discovery</span></div><div class="wf-annotation"><ul><li>Фільтри: спеціальність, ціна, рейтинг, мова, години</li><li>Пошук за прізвищем</li><li>Фільтри «термінова консультація» і «доступний зараз»</li></ul></div></div>
+      <div class="wf-card"><div class="wf-card-header"><span class="wf-title">WF-04 Doctor Profile</span><span class="wf-num">Profile</span></div><div class="wf-annotation"><ul><li>Графік, ціна, мови, рейтинг</li><li>CTA «Записатися»</li><li>CTA «Термінова консультація», якщо лікар увімкнув режим</li></ul></div></div>
+      <div class="wf-card"><div class="wf-card-header"><span class="wf-title">WF-06 Doctor Dashboard</span><span class="wf-num">Doctor</span></div><div class="wf-annotation"><ul><li>Checkbox «надаю термінові консультації»</li><li>Zoom-посилання, очікують підтвердження, фінансові статуси</li><li>Комісія платформи / сума лікаря / реферальні бонуси</li></ul></div></div>
+      <div class="wf-card"><div class="wf-card-header"><span class="wf-title">WF-07 Booking / Payment</span><span class="wf-num">Flow</span></div><div class="wf-annotation"><ul><li>Вибір слоту → Підтвердження лікаря → Оплата → Zoom-посилання</li><li>Терміново: Запит → Підтвердження лікаря → Оплата → Старт консультації</li></ul></div></div>
+      <div class="wf-card"><div class="wf-card-header"><span class="wf-title">WF-08 Consultation / Admin</span><span class="wf-num">Ops</span></div><div class="wf-annotation"><ul><li>Перехід за Zoom-посиланням, без власного відеостеку</li><li>Платформа зберігає посилання і статус, але не записує консультацію</li><li>Admin: комісії, історія змін, фінальні статуси, реферальні нарахування, refund review</li></ul></div></div>
     </div>
-
-    <!-- ROW 1: Landing + Auth -->
-    <div style="margin-bottom:.6rem;"><span class="wf-screen-label">Група А — Лендинг та аутентифікація</span></div>
-    <div class="wf-grid" style="margin-bottom:2.5rem;">
-
-      <!-- WF-01: Landing -->
-      <div class="wf-card">
-        <div class="wf-card-header">
-          <span class="wf-title">WF-01 · Головна сторінка</span>
-          <span class="wf-num">Landing</span>
-        </div>
-        <div class="wf-frame">
-          <div class="wf-browser">
-            <div class="wf-browser-bar">
-              <div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-dot"></div>
-              <div class="wf-url"></div>
-            </div>
-            <div class="wf-body">
-              <div class="wf-nav">
-                <div class="wf-nav-logo"></div>
-                <div class="wf-nav-links">
-                  <div class="wf-nav-link"></div>
-                  <div class="wf-nav-link"></div>
-                  <div class="wf-nav-link"></div>
-                  <div class="wf-nav-btn"></div>
-                </div>
-              </div>
-              <div class="wf-hero-block" style="padding:1.5rem .8rem;">
-                <div class="wf-h1" style="width:65%;"></div>
-                <div class="wf-h1" style="width:50%;"></div>
-                <div class="wf-p" style="width:75%;margin-top:.4rem;"></div>
-                <div class="wf-p" style="width:65%;"></div>
-                <div style="margin-top:.8rem;display:flex;gap:.5rem;justify-content:center;">
-                  <div class="wf-btn">Знайти лікаря</div>
-                  <div class="wf-btn secondary">Стати лікарем</div>
-                </div>
-              </div>
-              <div class="wf-section">
-                <div class="wf-h3" style="width:40%;margin:0 0 .7rem;"></div>
-                <div class="wf-row">
-                  <div style="flex:1;"><div class="wf-card-inner"><div class="wf-box img" style="height:36px;margin-bottom:.4rem;"></div><div class="wf-h3" style="width:80%;margin:0 0 .3rem;"></div><div class="wf-p" style="width:90%;"></div><div class="wf-p" style="width:70%;"></div></div></div>
-                  <div style="flex:1;"><div class="wf-card-inner"><div class="wf-box img" style="height:36px;margin-bottom:.4rem;"></div><div class="wf-h3" style="width:80%;margin:0 0 .3rem;"></div><div class="wf-p" style="width:90%;"></div><div class="wf-p" style="width:70%;"></div></div></div>
-                  <div style="flex:1;"><div class="wf-card-inner"><div class="wf-box img" style="height:36px;margin-bottom:.4rem;"></div><div class="wf-h3" style="width:80%;margin:0 0 .3rem;"></div><div class="wf-p" style="width:90%;"></div><div class="wf-p" style="width:70%;"></div></div></div>
-                  <div style="flex:1;"><div class="wf-card-inner"><div class="wf-box img" style="height:36px;margin-bottom:.4rem;"></div><div class="wf-h3" style="width:80%;margin:0 0 .3rem;"></div><div class="wf-p" style="width:90%;"></div><div class="wf-p" style="width:70%;"></div></div></div>
-                </div>
-                <div class="wf-divider"></div>
-                <div class="wf-row">
-                  <div style="flex:1;background:#E8E4DE;padding:.5rem;text-align:center;">
-                    <div class="wf-h3" style="width:50%;margin:0 auto .3rem;"></div>
-                    <div class="wf-p" style="width:70%;margin:0 auto .2rem;"></div>
-                    <div class="wf-p" style="width:60%;margin:0 auto;"></div>
-                  </div>
-                  <div style="flex:1;background:#DDE8E4;padding:.5rem;text-align:center;">
-                    <div class="wf-h3" style="width:50%;margin:0 auto .3rem;"></div>
-                    <div class="wf-p" style="width:70%;margin:0 auto .2rem;"></div>
-                    <div class="wf-p" style="width:60%;margin:0 auto;"></div>
-                  </div>
-                  <div style="flex:1;background:#E8E4DE;padding:.5rem;text-align:center;">
-                    <div class="wf-h3" style="width:50%;margin:0 auto .3rem;"></div>
-                    <div class="wf-p" style="width:70%;margin:0 auto .2rem;"></div>
-                    <div class="wf-p" style="width:60%;margin:0 auto;"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="wf-annotation">
-            <ul>
-              <li>Навігація: Логотип · Консультації · Підписки · Лікарям · CTA «Увійти»</li>
-              <li>Hero: Заголовок + підзаголовок + 2 CTA (пацієнт / лікар)</li>
-              <li>Блок «Що є на платформі»: 4 категорії (консультації, вправи, психологія, нутриціологія)</li>
-              <li>Лічильники: лікарів / консультацій / спеціальностей</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- WF-02: Patient Auth -->
-      <div class="wf-card">
-        <div class="wf-card-header">
-          <span class="wf-title">WF-02 · Реєстрація пацієнта</span>
-          <span class="wf-num">Auth · Patient</span>
-        </div>
-        <div class="wf-frame">
-          <div class="wf-browser">
-            <div class="wf-browser-bar">
-              <div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-dot"></div>
-              <div class="wf-url"></div>
-            </div>
-            <div class="wf-body">
-              <div class="wf-nav"><div class="wf-nav-logo"></div></div>
-              <div style="max-width:280px;margin:0 auto;padding:1rem .8rem;">
-                <div class="wf-h2" style="width:60%;margin:0 0 .3rem;"></div>
-                <div class="wf-p" style="width:85%;margin:0 0 1rem;"></div>
-
-                <div style="display:flex;margin-bottom:.8rem;border:1.5px solid var(--wf-box);border-radius:1px;overflow:hidden;">
-                  <div style="flex:1;padding:.4rem;background:#C0B8AC;text-align:center;"><div class="wf-p" style="width:80%;margin:0 auto;"></div></div>
-                  <div style="flex:1;padding:.4rem;background:var(--wf-bg);text-align:center;"><div class="wf-p" style="width:80%;margin:0 auto;"></div></div>
-                </div>
-
-                <div class="wf-input-label"></div>
-                <div class="wf-input" style="display:flex;align-items:center;padding:0 .4rem;">
-                  <span style="font-family:'DM Mono',monospace;font-size:.65rem;color:#8A8680;">+380</span>
-                </div>
-                <div class="wf-input-label"></div>
-                <div class="wf-input"></div>
-                <div class="wf-input-label"></div>
-                <div class="wf-input"></div>
-
-                <div style="display:flex;gap:.3rem;align-items:center;margin:.6rem 0;">
-                  <div style="width:14px;height:14px;border:1.5px solid var(--wf-box);flex-shrink:0;"></div>
-                  <div class="wf-p" style="width:100%;"></div>
-                </div>
-
-                <div class="wf-btn" style="width:100%;display:block;text-align:center;padding:.5rem;">Отримати SMS-код</div>
-
-                <div class="wf-divider" style="margin:1rem 0;"></div>
-
-                <div style="margin-bottom:.5rem;">
-                  <div class="wf-input-label" style="margin:0 auto .2rem;width:40%;"></div>
-                  <div style="display:flex;gap:.3rem;">
-                    <div class="wf-input" style="flex:1;"></div>
-                    <div class="wf-input" style="flex:1;"></div>
-                    <div class="wf-input" style="flex:1;"></div>
-                    <div class="wf-input" style="flex:1;"></div>
-                    <div class="wf-input" style="flex:1;"></div>
-                    <div class="wf-input" style="flex:1;"></div>
-                  </div>
-                </div>
-                <div class="wf-btn" style="width:100%;display:block;text-align:center;padding:.5rem;background:#8A8680;">Підтвердити →</div>
-              </div>
-            </div>
-          </div>
-          <div class="wf-annotation">
-            <ul>
-              <li>Таб-перемикач: «Пацієнт» / «Лікар»</li>
-              <li>Поля: Ім'я · Прізвище · Номер телефону (+380...)</li>
-              <li>Чекбокс: Згода на обробку персональних даних</li>
-              <li>SMS-верифікація: 6-значний код</li>
-              <li>Email — НЕ використовується (явне рішення)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ROW 2: Search + Doctor Profile -->
-    <div style="margin-bottom:.6rem;"><span class="wf-screen-label">Група Б — Пошук та профіль лікаря</span></div>
-    <div class="wf-grid" style="margin-bottom:2.5rem;">
-
-      <!-- WF-03 Doctor Search -->
-      <div class="wf-card">
-        <div class="wf-card-header">
-          <span class="wf-title">WF-03 · Пошук лікаря</span>
-          <span class="wf-num">Doctor Discovery</span>
-        </div>
-        <div class="wf-frame">
-          <div class="wf-browser">
-            <div class="wf-browser-bar">
-              <div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-url"></div>
-            </div>
-            <div class="wf-body">
-              <div class="wf-nav"><div class="wf-nav-logo"></div><div class="wf-nav-links"><div class="wf-nav-link"></div><div class="wf-nav-link"></div></div></div>
-              <div style="background:#D8D4CE;padding:.6rem .8rem;">
-                <div style="display:flex;gap:.4rem;align-items:center;">
-                  <div style="flex:1;height:28px;background:var(--white);border:1.5px solid var(--wf-box);display:flex;align-items:center;padding:0 .5rem;">
-                    <div class="wf-p" style="width:40%;"></div>
-                  </div>
-                  <div class="wf-btn" style="white-space:nowrap;padding:.4rem .7rem;">Знайти</div>
-                </div>
-              </div>
-              <div style="display:flex;height:320px;">
-                <!-- Filters sidebar -->
-                <div style="width:110px;flex-shrink:0;background:#E8E4DF;padding:.6rem .5rem;border-right:1px solid var(--wf-box);">
-                  <div class="wf-h3" style="width:80%;margin:0 0 .5rem;"></div>
-                  <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:var(--wf-label);margin-bottom:.3rem;">СПЕЦІАЛЬНІСТЬ</div>
-                  <div class="wf-input" style="height:18px;margin-bottom:.4rem;"></div>
-                  <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:var(--wf-label);margin:.4rem 0 .3rem;">МОВА</div>
-                  <div style="display:flex;flex-direction:column;gap:.2rem;">
-                    <div style="display:flex;gap:.3rem;align-items:center;"><div style="width:10px;height:10px;border:1px solid var(--wf-box);"></div><div class="wf-p" style="width:50%;"></div></div>
-                    <div style="display:flex;gap:.3rem;align-items:center;"><div style="width:10px;height:10px;border:1px solid var(--wf-box);"></div><div class="wf-p" style="width:50%;"></div></div>
-                    <div style="display:flex;gap:.3rem;align-items:center;"><div style="width:10px;height:10px;border:1px solid var(--wf-box);"></div><div class="wf-p" style="width:50%;"></div></div>
-                  </div>
-                  <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:var(--wf-label);margin:.4rem 0 .3rem;">ЦІНА</div>
-                  <div style="height:4px;background:#C8C4BA;border-radius:2px;margin-bottom:.4rem;position:relative;"><div style="position:absolute;left:20%;width:50%;height:4px;background:var(--wf-accent);border-radius:2px;"></div></div>
-                  <div style="display:flex;justify-content:space-between;"><div class="wf-p" style="width:30%;"></div><div class="wf-p" style="width:30%;"></div></div>
-                  <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:var(--wf-label);margin:.4rem 0 .3rem;">РЕЙТИНГ</div>
-                  <div style="display:flex;flex-direction:column;gap:.2rem;">
-                    <div style="display:flex;gap:.3rem;align-items:center;"><div style="width:10px;height:10px;border-radius:50%;border:1px solid var(--wf-box);"></div><div class="wf-p" style="width:60%;"></div></div>
-                    <div style="display:flex;gap:.3rem;align-items:center;"><div style="width:10px;height:10px;border-radius:50%;border:1px solid var(--wf-box);"></div><div class="wf-p" style="width:60%;"></div></div>
-                  </div>
-                </div>
-                <!-- Results list -->
-                <div style="flex:1;overflow:hidden;padding:.5rem;">
-                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem;">
-                    <div class="wf-p" style="width:30%;"></div>
-                    <div class="wf-input" style="width:90px;height:20px;margin:0;"></div>
-                  </div>
-                  <!-- Doctor card 1 -->
-                  <div class="wf-card-inner" style="margin-bottom:.5rem;">
-                    <div style="display:flex;gap:.5rem;">
-                      <div class="wf-avatar" style="width:44px;height:44px;"></div>
-                      <div style="flex:1;">
-                        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
-                          <div><div class="wf-h3" style="width:120px;margin:0 0 .2rem;"></div><div class="wf-p" style="width:80px;margin:0 0 .2rem;"></div></div>
-                          <div><div class="wf-h2" style="width:60px;margin:0 0 .1rem;"></div><div class="wf-p" style="width:50px;font-size:.6rem;color:var(--wf-label);"></div></div>
-                        </div>
-                        <div style="display:flex;gap:.2rem;margin:.2rem 0;"><div class="wf-tag-box">Укр</div><div class="wf-tag-box">Eng</div></div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:.3rem;">
-                          <div><span class="wf-stars">★★★★★</span><div class="wf-p" style="width:40px;display:inline-block;"></div></div>
-                          <div class="wf-badge">Верифіковано</div>
-                          <div class="wf-btn" style="padding:.2rem .5rem;font-size:.6rem;">Записатись</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Doctor card 2 -->
-                  <div class="wf-card-inner" style="margin-bottom:.5rem;">
-                    <div style="display:flex;gap:.5rem;">
-                      <div class="wf-avatar" style="width:44px;height:44px;"></div>
-                      <div style="flex:1;">
-                        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
-                          <div><div class="wf-h3" style="width:100px;margin:0 0 .2rem;"></div><div class="wf-p" style="width:70px;margin:0 0 .2rem;"></div></div>
-                          <div><div class="wf-h2" style="width:55px;margin:0 0 .1rem;"></div><div class="wf-p" style="width:50px;"></div></div>
-                        </div>
-                        <div style="display:flex;gap:.2rem;margin:.2rem 0;"><div class="wf-tag-box">Укр</div></div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:.3rem;">
-                          <div><span class="wf-stars">★★★★☆</span></div>
-                          <div class="wf-badge">Верифіковано</div>
-                          <div class="wf-btn" style="padding:.2rem .5rem;font-size:.6rem;">Записатись</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Doctor card 3 -->
-                  <div class="wf-card-inner">
-                    <div style="display:flex;gap:.5rem;">
-                      <div class="wf-avatar" style="width:44px;height:44px;"></div>
-                      <div style="flex:1;">
-                        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
-                          <div><div class="wf-h3" style="width:110px;margin:0 0 .2rem;"></div><div class="wf-p" style="width:75px;margin:0 0 .2rem;"></div></div>
-                          <div><div class="wf-h2" style="width:60px;margin:0 0 .1rem;"></div><div class="wf-p" style="width:50px;"></div></div>
-                        </div>
-                        <div style="display:flex;gap:.2rem;margin:.2rem 0;"><div class="wf-tag-box">Укр</div><div class="wf-tag-box">Рус</div><div class="wf-tag-box">Eng</div></div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:.3rem;">
-                          <div><span class="wf-stars">★★★★★</span></div>
-                          <div class="wf-badge">Верифіковано</div>
-                          <div class="wf-btn" style="padding:.2rem .5rem;font-size:.6rem;">Записатись</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="wf-annotation">
-            <ul>
-              <li>Рядок пошуку: пошук за спеціальністю / ПІБ лікаря</li>
-              <li>Фільтри: Спеціальність · Мова · Ціна (слайдер) · Рейтинг</li>
-              <li>Картка лікаря: Аватар · Ім'я · Спеціальність · Ціна · Мови · Рейтинг · Бейдж верифікації · CTA</li>
-              <li>Сортування: за рейтингом / ціною / доступністю</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- WF-04 Doctor Profile -->
-      <div class="wf-card">
-        <div class="wf-card-header">
-          <span class="wf-title">WF-04 · Профіль лікаря</span>
-          <span class="wf-num">Doctor Profile</span>
-        </div>
-        <div class="wf-frame">
-          <div class="wf-browser">
-            <div class="wf-browser-bar">
-              <div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-url"></div>
-            </div>
-            <div class="wf-body">
-              <div class="wf-nav"><div class="wf-nav-logo"></div><div class="wf-nav-links"><div class="wf-nav-link"></div></div></div>
-              <div style="padding:.8rem;">
-                <!-- Header row -->
-                <div style="display:flex;gap:.8rem;margin-bottom:.8rem;align-items:flex-start;">
-                  <div class="wf-avatar" style="width:64px;height:64px;flex-shrink:0;"></div>
-                  <div style="flex:1;">
-                    <div style="display:flex;justify-content:space-between;align-items:flex-start;">
-                      <div>
-                        <div class="wf-h1" style="width:160px;margin:0 0 .3rem;"></div>
-                        <div class="wf-h3" style="width:110px;margin:0 0 .3rem;"></div>
-                        <div style="display:flex;gap:.2rem;flex-wrap:wrap;">
-                          <div class="wf-badge">Верифіковано ✓</div>
-                          <div class="wf-tag-box">Укр</div><div class="wf-tag-box">Eng</div>
-                        </div>
-                      </div>
-                      <div style="text-align:right;">
-                        <div class="wf-h2" style="width:70px;margin:0 0 .2rem;margin-left:auto;"></div>
-                        <div class="wf-p" style="width:60px;margin:0 0 .4rem;margin-left:auto;"></div>
-                        <div class="wf-btn" style="padding:.3rem .7rem;font-size:.65rem;">Записатися</div>
-                      </div>
-                    </div>
-                    <div style="margin-top:.4rem;"><span class="wf-stars">★★★★★</span> <span style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--wf-label);">4.9 · 127 відгуків</span></div>
-                  </div>
-                </div>
-                <!-- Tabs -->
-                <div style="display:flex;border-bottom:1.5px solid var(--wf-box);margin-bottom:.6rem;">
-                  <div style="padding:.3rem .7rem;border-bottom:2px solid var(--wf-accent);font-family:'DM Mono',monospace;font-size:.62rem;color:var(--wf-accent);">Про лікаря</div>
-                  <div style="padding:.3rem .7rem;font-family:'DM Mono',monospace;font-size:.62rem;color:var(--wf-label);">Розклад</div>
-                  <div style="padding:.3rem .7rem;font-family:'DM Mono',monospace;font-size:.62rem;color:var(--wf-label);">Відгуки</div>
-                  <div style="padding:.3rem .7rem;font-family:'DM Mono',monospace;font-size:.62rem;color:var(--wf-label);">Матеріали</div>
-                </div>
-                <!-- About content -->
-                <div class="wf-p" style="width:100%;margin-bottom:.2rem;"></div>
-                <div class="wf-p" style="width:95%;margin-bottom:.2rem;"></div>
-                <div class="wf-p" style="width:88%;margin-bottom:.6rem;"></div>
-                <!-- Media grid -->
-                <div class="wf-h3" style="width:80px;margin:0 0 .4rem;"></div>
-                <div style="display:flex;gap:.4rem;">
-                  <div class="wf-box img" style="flex:1;height:52px;"></div>
-                  <div class="wf-box img" style="flex:1;height:52px;"></div>
-                  <div class="wf-box img" style="flex:1;height:52px;"></div>
-                  <div class="wf-box img" style="flex:1;height:52px;display:flex;align-items:center;justify-content:center;"><span style="font-family:'DM Mono',monospace;font-size:.6rem;color:var(--wf-label);">+12</span></div>
-                </div>
-                <!-- Booking CTA bar -->
-                <div style="margin-top:.8rem;background:#E8E4DE;padding:.6rem;display:flex;justify-content:space-between;align-items:center;">
-                  <div><div class="wf-h3" style="width:80px;margin:0 0 .2rem;"></div><div class="wf-p" style="width:60px;"></div></div>
-                  <div style="display:flex;gap:.4rem;">
-                    <div class="wf-input" style="width:100px;height:22px;margin:0;"></div>
-                    <div class="wf-btn" style="padding:.3rem .6rem;font-size:.65rem;">Обрати слот</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="wf-annotation">
-            <ul>
-              <li>Шапка: Аватар · Ім'я · Спеціальність · Мови · Рейтинг · Верифікація · Ціна · CTA «Записатися»</li>
-              <li>Таби: Про лікаря · Розклад · Відгуки · Матеріали (відео/фото)</li>
-              <li>Лікар може завантажувати власні матеріали (відео кейсів, статті)</li>
-              <li>Панель бронювання: вибір дати + слоту + кнопка «Обрати»</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ROW 3: Patient + Doctor Dashboard -->
-    <div style="margin-bottom:.6rem;"><span class="wf-screen-label">Група В — Особисті кабінети</span></div>
-    <div class="wf-grid" style="margin-bottom:2.5rem;">
-
-      <!-- WF-05 Patient Dashboard -->
-      <div class="wf-card">
-        <div class="wf-card-header">
-          <span class="wf-title">WF-05 · Кабінет пацієнта</span>
-          <span class="wf-num">Patient Dashboard</span>
-        </div>
-        <div class="wf-frame">
-          <div class="wf-browser">
-            <div class="wf-browser-bar">
-              <div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-url"></div>
-            </div>
-            <div class="wf-body">
-              <div class="wf-nav"><div class="wf-nav-logo"></div></div>
-              <div style="display:flex;height:320px;">
-                <div class="wf-sidebar">
-                  <div style="display:flex;flex-direction:column;gap:.3rem;">
-                    <div class="wf-sidebar-item active"><div class="wf-sidebar-label"></div></div>
-                    <div class="wf-sidebar-item"><div class="wf-sidebar-label"></div></div>
-                    <div class="wf-sidebar-item"><div class="wf-sidebar-label"></div></div>
-                    <div class="wf-sidebar-item"><div class="wf-sidebar-label"></div></div>
-                    <div class="wf-sidebar-item"><div class="wf-sidebar-label"></div></div>
-                  </div>
-                </div>
-                <div style="flex:1;padding:.6rem;overflow:hidden;">
-                  <div class="wf-h2" style="width:120px;margin:0 0 .6rem;"></div>
-                  <!-- Stats row -->
-                  <div style="display:flex;gap:.4rem;margin-bottom:.7rem;">
-                    <div class="wf-stat-block"><div class="wf-stat-num"></div><div class="wf-stat-lbl"></div></div>
-                    <div class="wf-stat-block"><div class="wf-stat-num"></div><div class="wf-stat-lbl"></div></div>
-                    <div class="wf-stat-block"><div class="wf-stat-num"></div><div class="wf-stat-lbl"></div></div>
-                  </div>
-                  <!-- Upcoming consultation -->
-                  <div class="wf-h3" style="width:90px;margin:0 0 .4rem;"></div>
-                  <div class="wf-card-inner" style="margin-bottom:.5rem;display:flex;gap:.5rem;align-items:center;">
-                    <div class="wf-avatar" style="width:32px;height:32px;"></div>
-                    <div style="flex:1;">
-                      <div class="wf-h3" style="width:100px;margin:0 0 .2rem;"></div>
-                      <div class="wf-p" style="width:120px;"></div>
-                    </div>
-                    <div class="wf-btn" style="padding:.2rem .5rem;font-size:.58rem;white-space:nowrap;">Приєднатися</div>
-                  </div>
-                  <!-- Medical records -->
-                  <div class="wf-h3" style="width:100px;margin:0 0 .4rem;"></div>
-                  <div style="display:flex;gap:.4rem;">
-                    <div class="wf-card-inner" style="flex:1;">
-                      <div class="wf-box" style="height:28px;margin-bottom:.3rem;"></div>
-                      <div class="wf-p" style="width:90%;"></div>
-                    </div>
-                    <div class="wf-card-inner" style="flex:1;">
-                      <div class="wf-box" style="height:28px;margin-bottom:.3rem;"></div>
-                      <div class="wf-p" style="width:90%;"></div>
-                    </div>
-                    <div style="flex:1;border:1.5px dashed var(--wf-box);display:flex;align-items:center;justify-content:center;cursor:pointer;">
-                      <span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--wf-label);">+ Додати</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="wf-annotation">
-            <ul>
-              <li>Бокова панель: Головна · Консультації · Медкарта · Підписки · Реферали · Налаштування</li>
-              <li>Статистика: кількість консультацій · активна підписка · реферальний баланс</li>
-              <li>Наступна консультація: лікар · дата/час · CTA «Приєднатися»</li>
-              <li>Медичні записи: завантажені файли + кнопка «Додати»</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- WF-06 Doctor Dashboard -->
-      <div class="wf-card">
-        <div class="wf-card-header">
-          <span class="wf-title">WF-06 · Кабінет лікаря</span>
-          <span class="wf-num">Doctor Dashboard</span>
-        </div>
-        <div class="wf-frame">
-          <div class="wf-browser">
-            <div class="wf-browser-bar">
-              <div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-url"></div>
-            </div>
-            <div class="wf-body">
-              <div class="wf-nav"><div class="wf-nav-logo"></div></div>
-              <div style="display:flex;height:320px;">
-                <div class="wf-sidebar">
-                  <div style="display:flex;flex-direction:column;gap:.3rem;">
-                    <div class="wf-sidebar-item active"><div class="wf-sidebar-label"></div></div>
-                    <div class="wf-sidebar-item"><div class="wf-sidebar-label"></div></div>
-                    <div class="wf-sidebar-item"><div class="wf-sidebar-label"></div></div>
-                    <div class="wf-sidebar-item"><div class="wf-sidebar-label"></div></div>
-                    <div class="wf-sidebar-item"><div class="wf-sidebar-label"></div></div>
-                    <div class="wf-sidebar-item"><div class="wf-sidebar-label"></div></div>
-                  </div>
-                </div>
-                <div style="flex:1;padding:.6rem;overflow:hidden;">
-                  <div class="wf-h2" style="width:130px;margin:0 0 .6rem;"></div>
-                  <!-- Earnings stats -->
-                  <div style="display:flex;gap:.4rem;margin-bottom:.6rem;">
-                    <div class="wf-stat-block" style="border-top:2px solid #2A7A4B;"><div class="wf-stat-num" style="background:#2A7A4B;"></div><div class="wf-stat-lbl"></div></div>
-                    <div class="wf-stat-block"><div class="wf-stat-num"></div><div class="wf-stat-lbl"></div></div>
-                    <div class="wf-stat-block"><div class="wf-stat-num"></div><div class="wf-stat-lbl"></div></div>
-                  </div>
-                  <!-- Schedule preview -->
-                  <div class="wf-h3" style="width:80px;margin:0 0 .4rem;"></div>
-                  <div style="display:flex;gap:.3rem;margin-bottom:.5rem;">
-                    <div style="flex:1;padding:.25rem;background:#D8D4CC;border-radius:1px;text-align:center;"><div class="wf-p" style="width:80%;margin:0 auto .1rem;"></div><div style="height:20px;background:var(--wf-accent);opacity:.3;border-radius:1px;"></div></div>
-                    <div style="flex:1;padding:.25rem;background:#D8D4CC;border-radius:1px;text-align:center;"><div class="wf-p" style="width:80%;margin:0 auto .1rem;"></div><div style="height:20px;background:#D8D4CC;border-radius:1px;border:1px dashed var(--wf-dark);"></div></div>
-                    <div style="flex:1;padding:.25rem;background:#D8D4CC;border-radius:1px;text-align:center;"><div class="wf-p" style="width:80%;margin:0 auto .1rem;"></div><div style="height:20px;background:var(--wf-accent);opacity:.5;border-radius:1px;"></div></div>
-                    <div style="flex:1;padding:.25rem;background:#D8D4CC;border-radius:1px;text-align:center;"><div class="wf-p" style="width:80%;margin:0 auto .1rem;"></div><div style="height:20px;background:#D8D4CC;border-radius:1px;border:1px dashed var(--wf-dark);"></div></div>
-                    <div style="flex:1;padding:.25rem;background:#D8D4CC;border-radius:1px;text-align:center;"><div class="wf-p" style="width:80%;margin:0 auto .1rem;"></div><div style="height:20px;background:var(--wf-accent);opacity:.7;border-radius:1px;"></div></div>
-                  </div>
-                  <!-- Document status -->
-                  <div class="wf-h3" style="width:100px;margin:0 0 .4rem;"></div>
-                  <div class="wf-card-inner" style="display:flex;gap:.5rem;align-items:center;">
-                    <div style="width:8px;height:8px;border-radius:50%;background:#2A7A4B;flex-shrink:0;"></div>
-                    <div style="flex:1;"><div class="wf-p" style="width:90%;margin-bottom:.1rem;"></div><div class="wf-p" style="width:60%;"></div></div>
-                    <div class="wf-badge">До: 2025-08-12</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="wf-annotation">
-            <ul>
-              <li>Бокова панель: Дашборд · Розклад · Пацієнти · Матеріали · Виплати · Документи · Налаштування</li>
-              <li>Статистика: заробіток за місяць · кількість консультацій · рейтинг</li>
-              <li>Розклад: тижневий огляд зайнятих / вільних слотів</li>
-              <li>Статус документів: термін дії ліцензії + попередження про закінчення</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ROW 4: Booking + Consultation -->
-    <div style="margin-bottom:.6rem;"><span class="wf-screen-label">Група Г — Бронювання та консультація</span></div>
-    <div class="wf-grid" style="margin-bottom:2.5rem;">
-
-      <!-- WF-07 Booking Flow -->
-      <div class="wf-card">
-        <div class="wf-card-header">
-          <span class="wf-title">WF-07 · Флоу бронювання та оплати</span>
-          <span class="wf-num">Booking · Payment</span>
-        </div>
-        <div class="wf-frame">
-          <div class="wf-browser">
-            <div class="wf-browser-bar">
-              <div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-url"></div>
-            </div>
-            <div class="wf-body">
-              <div class="wf-nav"><div class="wf-nav-logo"></div></div>
-              <div style="padding:.8rem;">
-                <!-- Progress steps -->
-                <div style="display:flex;gap:0;margin-bottom:1rem;border:1px solid var(--wf-box);">
-                  <div style="flex:1;padding:.3rem;background:var(--wf-accent);text-align:center;"><div class="wf-p" style="width:80%;margin:0 auto;background:#C8D8E8;"></div></div>
-                  <div style="flex:1;padding:.3rem;background:#D0CCC4;text-align:center;"><div class="wf-p" style="width:80%;margin:0 auto;"></div></div>
-                  <div style="flex:1;padding:.3rem;background:#D0CCC4;text-align:center;"><div class="wf-p" style="width:80%;margin:0 auto;"></div></div>
-                </div>
-                <div class="wf-row">
-                  <!-- Step 1: Date/slot selection -->
-                  <div style="flex:1.2;">
-                    <div class="wf-h3" style="width:80px;margin:0 0 .5rem;"></div>
-                    <!-- Mini calendar -->
-                    <div style="background:#E8E4DE;padding:.5rem;border:1px solid var(--wf-box);">
-                      <div style="display:flex;justify-content:space-between;margin-bottom:.4rem;">
-                        <div style="font-family:'DM Mono',monospace;font-size:.6rem;color:var(--wf-label);">‹</div>
-                        <div class="wf-p" style="width:60%;"></div>
-                        <div style="font-family:'DM Mono',monospace;font-size:.6rem;color:var(--wf-label);">›</div>
-                      </div>
-                      <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:.15rem;">
-                        ${Array(28).fill(0).map((_,i) => `<div style="height:14px;background:${i===9||i===14||i===21?'var(--wf-accent)':(i===3||i===5||i===11)?'#B8C0C8':'#D0CCC4'};border-radius:1px;"></div>`).join('')}
-                      </div>
-                    </div>
-                    <!-- Time slots -->
-                    <div class="wf-h3" style="width:70px;margin:.5rem 0 .3rem;"></div>
-                    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.25rem;">
-                      <div style="height:20px;background:var(--wf-accent);border-radius:1px;opacity:.8;"></div>
-                      <div style="height:20px;background:#D0CCC4;border-radius:1px;"></div>
-                      <div style="height:20px;background:var(--wf-accent);border-radius:1px;opacity:.5;"></div>
-                      <div style="height:20px;background:#C0B8AC;border-radius:1px;opacity:.4;position:relative;overflow:hidden;"><div style="position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 3px,rgba(0,0,0,.1) 3px,rgba(0,0,0,.1) 4px);"></div></div>
-                      <div style="height:20px;background:var(--wf-accent);border-radius:1px;opacity:.6;"></div>
-                      <div style="height:20px;background:#D0CCC4;border-radius:1px;"></div>
-                    </div>
-                  </div>
-                  <!-- Step 1: Summary -->
-                  <div style="flex:1;">
-                    <div class="wf-card-inner">
-                      <div class="wf-h3" style="width:80%;margin:0 0 .5rem;"></div>
-                      <div class="wf-divider"></div>
-                      <div style="display:flex;justify-content:space-between;padding:.2rem 0;"><div class="wf-p" style="width:50%;"></div><div class="wf-p" style="width:30%;"></div></div>
-                      <div style="display:flex;justify-content:space-between;padding:.2rem 0;"><div class="wf-p" style="width:40%;"></div><div class="wf-p" style="width:35%;"></div></div>
-                      <div style="display:flex;justify-content:space-between;padding:.2rem 0;"><div class="wf-p" style="width:45%;"></div><div class="wf-p" style="width:30%;"></div></div>
-                      <div class="wf-divider"></div>
-                      <div style="display:flex;justify-content:space-between;"><div class="wf-h3" style="width:40%;"></div><div class="wf-h2" style="width:35%;"></div></div>
-                      <div style="margin-top:.5rem;">
-                        <div class="wf-input-label" style="width:60%;margin-bottom:.2rem;"></div>
-                        <div class="wf-input" style="height:20px;"></div>
-                      </div>
-                      <div class="wf-btn" style="width:100%;display:block;text-align:center;padding:.4rem;margin-top:.5rem;font-size:.68rem;">Перейти до оплати →</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="wf-annotation">
-            <ul>
-              <li>Прогрес-бар: 3 кроки — Вибір слоту · Оплата · Підтвердження</li>
-              <li>Крок 1: Міні-календар + таймслоти (зайняті позначено штрихуванням)</li>
-              <li>Зведення: лікар · дата/час · тривалість · сума · поле реферального коду</li>
-              <li>CTA переходить до платіжної форми</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- WF-08 Consultation Screen -->
-      <div class="wf-card">
-        <div class="wf-card-header">
-          <span class="wf-title">WF-08 · Екран консультації</span>
-          <span class="wf-num">Consultation · In-Session</span>
-        </div>
-        <div class="wf-frame">
-          <div class="wf-browser">
-            <div class="wf-browser-bar">
-              <div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-url"></div>
-            </div>
-            <div class="wf-body">
-              <div style="background:#1A2A3A;padding:.5rem .8rem;display:flex;align-items:center;justify-content:space-between;">
-                <div class="wf-nav-logo" style="background:#7AADCF;width:80px;height:12px;border-radius:1px;"></div>
-                <div style="display:flex;gap:.4rem;align-items:center;">
-                  <div style="width:8px;height:8px;border-radius:50%;background:#2A7A4B;"></div>
-                  <div class="wf-p" style="width:50px;background:#4A6A80;"></div>
-                  <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#C8D8E0;">28:14</div>
-                </div>
-              </div>
-              <!-- Video area -->
-              <div style="background:#0A1520;display:flex;height:200px;gap:2px;">
-                <!-- Main video -->
-                <div style="flex:3;display:flex;align-items:center;justify-content:center;border:1px solid #2A4A60;position:relative;">
-                  <div class="wf-avatar" style="width:56px;height:56px;background:#2A4A60;"></div>
-                  <div style="position:absolute;bottom:.4rem;left:.4rem;font-family:'DM Mono',monospace;font-size:.6rem;color:#8AADCA;">Лікар Іванова О.М.</div>
-                </div>
-                <!-- Self view -->
-                <div style="flex:1;display:flex;align-items:center;justify-content:center;border:1px solid #2A4A60;position:relative;">
-                  <div class="wf-avatar" style="width:28px;height:28px;background:#1A3450;"></div>
-                  <div style="position:absolute;bottom:.3rem;left:.3rem;font-family:'DM Mono',monospace;font-size:.55rem;color:#5A8090;">Ви</div>
-                </div>
-              </div>
-              <!-- Controls bar -->
-              <div style="background:#142030;padding:.5rem .8rem;display:flex;gap:.5rem;justify-content:center;align-items:center;">
-                <div style="width:28px;height:28px;border-radius:50%;background:#2A4060;display:flex;align-items:center;justify-content:center;"><span style="font-size:.75rem;">🎤</span></div>
-                <div style="width:28px;height:28px;border-radius:50%;background:#2A4060;display:flex;align-items:center;justify-content:center;"><span style="font-size:.75rem;">📷</span></div>
-                <div style="width:28px;height:28px;border-radius:50%;background:#2A4060;display:flex;align-items:center;justify-content:center;"><span style="font-size:.75rem;">📎</span></div>
-                <div style="width:36px;height:28px;border-radius:14px;background:#C5472B;display:flex;align-items:center;justify-content:center;"><span style="font-size:.75rem;">📞</span></div>
-              </div>
-              <!-- Chat panel -->
-              <div style="padding:.5rem .8rem;">
-                <div class="wf-h3" style="width:60px;margin:0 0 .3rem;"></div>
-                <div style="background:#EEF2F6;padding:.4rem;border-radius:1px;margin-bottom:.3rem;font-family:'DM Mono',monospace;font-size:.58rem;color:var(--wf-label);">
-                  Лікар: <div class="wf-p" style="width:80%;display:inline-block;"></div>
-                </div>
-                <div style="background:#D8EBF8;padding:.4rem;border-radius:1px;margin-bottom:.3rem;font-family:'DM Mono',monospace;font-size:.58rem;color:var(--wf-label);text-align:right;">
-                  <div class="wf-p" style="width:60%;margin-left:auto;"></div>
-                </div>
-                <div style="display:flex;gap:.3rem;">
-                  <div class="wf-input" style="flex:1;height:20px;margin:0;"></div>
-                  <div class="wf-btn" style="padding:.2rem .5rem;font-size:.58rem;">→</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="wf-annotation">
-            <ul>
-              <li>Відеоarea: основне зображення лікаря + self-view пацієнта (Zoom embed)</li>
-              <li>Панель керування: мікрофон · камера · вкладення · завершення дзвінка</li>
-              <li>Чат: текстовий обмін під час консультації</li>
-              <li>Таймер сесії відображається у шапці</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ROW 5: Admin Panel -->
-    <div style="margin-bottom:.6rem;"><span class="wf-screen-label">Група Д — Адмін-панель</span></div>
-    <div class="wf-grid single" style="margin-bottom:2.5rem;">
-      <div class="wf-card">
-        <div class="wf-card-header">
-          <span class="wf-title">WF-09 · Адмін-панель — Верифікація лікарів</span>
-          <span class="wf-num">Admin · Doctor Verification</span>
-        </div>
-        <div class="wf-frame">
-          <div class="wf-browser">
-            <div class="wf-browser-bar">
-              <div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-url"></div>
-            </div>
-            <div class="wf-body">
-              <div style="display:flex;height:360px;">
-                <!-- Admin sidebar -->
-                <div style="width:100px;flex-shrink:0;background:#2A3540;padding:.6rem .5rem;">
-                  <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:#5A7A8A;margin-bottom:.6rem;letter-spacing:.08em;text-transform:uppercase;">Адмін</div>
-                  <div style="display:flex;flex-direction:column;gap:.3rem;">
-                    <div style="padding:.3rem .4rem;background:#1A2A35;border-radius:1px;"><div class="wf-p" style="width:80%;background:#4A6A7A;"></div></div>
-                    <div style="padding:.3rem .4rem;background:#C5472B;border-radius:1px;"><div class="wf-p" style="width:80%;background:#F0A090;"></div></div>
-                    <div style="padding:.3rem .4rem;background:#1A2A35;border-radius:1px;"><div class="wf-p" style="width:80%;background:#4A6A7A;"></div></div>
-                    <div style="padding:.3rem .4rem;background:#1A2A35;border-radius:1px;"><div class="wf-p" style="width:80%;background:#4A6A7A;"></div></div>
-                    <div style="padding:.3rem .4rem;background:#1A2A35;border-radius:1px;"><div class="wf-p" style="width:80%;background:#4A6A7A;"></div></div>
-                  </div>
-                </div>
-                <!-- Main content -->
-                <div style="flex:1;padding:.7rem;overflow:hidden;">
-                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.7rem;">
-                    <div class="wf-h2" style="width:160px;margin:0;"></div>
-                    <div style="display:flex;gap:.3rem;align-items:center;">
-                      <div class="wf-input" style="width:120px;height:22px;margin:0;"></div>
-                      <div class="wf-btn" style="padding:.2rem .5rem;font-size:.62rem;">Фільтр</div>
-                    </div>
-                  </div>
-                  <!-- Verification queue table -->
-                  <div style="border:1px solid var(--wf-box);">
-                    <div style="display:grid;grid-template-columns:1.5fr 1.5fr 1fr 1fr 1fr 1fr;background:#D0CCC4;gap:0;border-bottom:1px solid var(--wf-box);">
-                      <div style="padding:.3rem .4rem;"><div class="wf-p" style="width:80%;background:#8A8680;"></div></div>
-                      <div style="padding:.3rem .4rem;"><div class="wf-p" style="width:80%;background:#8A8680;"></div></div>
-                      <div style="padding:.3rem .4rem;"><div class="wf-p" style="width:80%;background:#8A8680;"></div></div>
-                      <div style="padding:.3rem .4rem;"><div class="wf-p" style="width:70%;background:#8A8680;"></div></div>
-                      <div style="padding:.3rem .4rem;"><div class="wf-p" style="width:60%;background:#8A8680;"></div></div>
-                      <div style="padding:.3rem .4rem;"><div class="wf-p" style="width:60%;background:#8A8680;"></div></div>
-                    </div>
-                    ${[
-                      ['#FEFFFE','#E0D8C8','#FFE8C0',''],
-                      ['#F8F5F0','#F8F5F0','#D0E8D8',''],
-                      ['#FEFFFE','#FFE8E0','#FFE0D8',''],
-                    ].map(([bg1,bg2,statusBg,_]) => `
-                    <div style="display:grid;grid-template-columns:1.5fr 1.5fr 1fr 1fr 1fr 1fr;border-bottom:1px solid var(--wf-box);background:${bg1};">
-                      <div style="padding:.35rem .4rem;display:flex;gap:.3rem;align-items:center;"><div class="wf-avatar" style="width:20px;height:20px;"></div><div class="wf-p" style="width:70%;"></div></div>
-                      <div style="padding:.35rem .4rem;"><div class="wf-p" style="width:85%;"></div></div>
-                      <div style="padding:.35rem .4rem;"><div style="height:14px;background:${statusBg};border-radius:1px;width:80%;"></div></div>
-                      <div style="padding:.35rem .4rem;"><div class="wf-p" style="width:70%;"></div></div>
-                      <div style="padding:.35rem .4rem;"><div class="wf-p" style="width:60%;"></div></div>
-                      <div style="padding:.35rem .4rem;display:flex;gap:.2rem;">
-                        <div style="height:18px;width:30px;background:#2A7A4B;border-radius:1px;"></div>
-                        <div style="height:18px;width:30px;background:#C5472B;border-radius:1px;"></div>
-                        <div style="height:18px;width:20px;background:#D0CCC4;border-radius:1px;"></div>
-                      </div>
-                    </div>`).join('')}
-                  </div>
-                  <!-- Pagination -->
-                  <div style="display:flex;justify-content:flex-end;gap:.3rem;margin-top:.5rem;">
-                    <div style="width:22px;height:18px;background:#D0CCC4;border-radius:1px;"></div>
-                    <div style="width:22px;height:18px;background:var(--wf-accent);border-radius:1px;opacity:.7;"></div>
-                    <div style="width:22px;height:18px;background:#D0CCC4;border-radius:1px;"></div>
-                    <div style="width:22px;height:18px;background:#D0CCC4;border-radius:1px;"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="wf-annotation">
-            <ul>
-              <li>Бокова панель адміна: Дашборд · Верифікація (активний, з лічильником) · Відгуки · Виплати · Налаштування</li>
-              <li>Таблиця черги верифікації: Лікар · Спеціальність · Статус (Очікує / Затверджено / Відхилено) · Дата подачі · Дата закінчення ліцензії · Дії</li>
-              <li>Дії: ✓ Затвердити · ✗ Відхилити · 👁 Переглянути документи</li>
-              <li>Фільтр за статусом (черга / затверджені / термін скоро закінчується)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- ══ 8. РИЗИКИ ══ -->
 <section id="risks">
   <div class="container">
     <div class="section-label">08 / Risk Register</div>
     <h2 class="section-title">Реєстр ризиків</h2>
-
     <table class="risk-table">
-      <thead>
-        <tr>
-          <th style="width:38%">Ризик</th>
-          <th style="width:10%;text-align:center">Вплив</th>
-          <th style="width:52%">Пом'якшення / Наступний крок</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Ризик</th><th style="text-align:center">Вплив</th><th>Пом'якшення / наступний крок</th></tr></thead>
       <tbody>
-        <tr>
-          <td><strong>Правовий статус:</strong> незалежні онлайн-консультації лікарів у правовому полі України — якщо заборонено, вся модель руйнується</td>
-          <td style="text-align:center"><span class="tag tag-high">HIGH</span></td>
-          <td style="font-size:.82rem;color:#4A5A6A;">Залучити юридичного консультанта невідкладно. Валідація до будь-яких розробних інвестицій поза Discovery.</td>
-        </tr>
-        <tr>
-          <td><strong>Платіжна інтеграція:</strong> складність реалізації реферальний рахунок + комісія + автовиплати</td>
-          <td style="text-align:center"><span class="tag tag-high">HIGH</span></td>
-          <td style="font-size:.82rem;color:#4A5A6A;">Визначити платіжного провайдера на ранній стадії. Сформувати технічну специфікацію для розщеплення платежів.</td>
-        </tr>
-        <tr>
-          <td><strong>Холодний старт:</strong> недостатня пропозиція лікарів на старті = відсутній попит пацієнтів</td>
-          <td style="text-align:center"><span class="tag tag-high">HIGH</span></td>
-          <td style="font-size:.82rem;color:#4A5A6A;">Розробити стратегію залучення лікарів до запуску. Визначити мінімальний поріг пропозиції.</td>
-        </tr>
-        <tr>
-          <td><strong>Конфіденційність даних / GDPR:</strong> медичні записи та персональні дані здоров'я потребують специфічного правового підходу</td>
-          <td style="text-align:center"><span class="tag tag-high">HIGH</span></td>
-          <td style="font-size:.82rem;color:#4A5A6A;">Скласти політику конфіденційності та DPA. Класифікувати медичні дані за законодавством України та ЄС.</td>
-        </tr>
-        <tr>
-          <td><strong>Фрод документів лікарів:</strong> підроблені або прострочені документи</td>
-          <td style="text-align:center"><span class="tag tag-mid">MED</span></td>
-          <td style="font-size:.82rem;color:#4A5A6A;">Автоматичне призупинення при закінченні терміну визначено. Потрібен ручний процес верифікації. Розглянути інтеграцію з сервісом перевірки ID (напр. Дія).</td>
-        </tr>
-        <tr>
-          <td><strong>Маніпуляції з рейтингом:</strong> пацієнти або лікарі накручують оцінки</td>
-          <td style="text-align:center"><span class="tag tag-mid">MED</span></td>
-          <td style="font-size:.82rem;color:#4A5A6A;">Реєстрація за номером телефону знижує ризик ботів. Передбачена можливість адміну видаляти відгуки. Необхідна політика автентичності відгуків.</td>
-        </tr>
-        <tr>
-          <td><strong>Залежність від Zoom:</strong> зміна тарифів API, ліміти або умови використання</td>
-          <td style="text-align:center"><span class="tag tag-mid">MED</span></td>
-          <td style="font-size:.82rem;color:#4A5A6A;">Оцінити вартість Zoom API при масштабуванні. Розглянути альтернативи (Daily.co, Jitsi) як запасний варіант.</td>
-        </tr>
-        <tr>
-          <td><strong>Scope creep під час v1:</strong> список засновника значно виходить за межі задекларованого v1</td>
-          <td style="text-align:center"><span class="tag tag-mid">MED</span></td>
-          <td style="font-size:.82rem;color:#4A5A6A;">Зафіксувати скоп v1 формально. Необхідне управління беклогом та версійна дорожня карта.</td>
-        </tr>
-        <tr>
-          <td><strong>Відповідь конкурентів:</strong> Helsi або приватні мережі запускають аналогічний функціонал</td>
-          <td style="text-align:center"><span class="tag tag-mid">MED</span></td>
-          <td style="font-size:.82rem;color:#4A5A6A;">Швидкість виходу на ринок — основне пом'якшення. Стратегія — захоплення ніші до реакції конкурентів.</td>
-        </tr>
+        <tr><td>Банк/провайдер може не підтримати потрібну фінансову модель</td><td style="text-align:center"><span class="tag tag-high">HIGH</span></td><td>Валідувати провайдера і тимчасову операційну процедуру.</td></tr>
+        <tr><td>Податкова логіка реферальних виплат фізичним особам</td><td style="text-align:center"><span class="tag tag-high">HIGH</span></td><td>Юридично підтвердити модель нарахування, використання і виводу коштів.</td></tr>
+        <tr><td>Юридичний статус платформи як посередника</td><td style="text-align:center"><span class="tag tag-high">HIGH</span></td><td>Підготувати договори, дисклеймери, terms, privacy і правила консультацій.</td></tr>
+        <tr><td>Захист персональних і медичних даних</td><td style="text-align:center"><span class="tag tag-high">HIGH</span></td><td>AWS storage, політика доступу, мінімізація даних, юридичні згоди.</td></tr>
+        <tr><td>Scope pressure через реферальну систему, виплати, підписки і термінові консультації</td><td style="text-align:center"><span class="tag tag-high">HIGH</span></td><td>Фіксувати acceptance criteria і двотижневі increments з sign-off.</td></tr>
+        <tr><td>Складний UX може зламати цінність для літніх користувачів</td><td style="text-align:center"><span class="tag tag-high">HIGH</span></td><td>Мінімум кнопок, переходів і зайвих посилань.</td></tr>
+        <tr><td>Ручне Zoom-посилання, email-only notifications, фрод документів, маніпуляції рейтингом, no-show спори</td><td style="text-align:center"><span class="tag tag-mid">MED</span></td><td>Статуси очікування, адмінський контроль, модерація, refund review.</td></tr>
       </tbody>
     </table>
   </div>
 </section>
 
-<!-- ══ 9. ПРИПУЩЕННЯ ══ -->
-<section id="assumptions">
+<section id="decisions">
   <div class="container">
-    <div class="section-label">09 / Assumptions Log</div>
-    <h2 class="section-title">Журнал припущень</h2>
-    <div class="callout warn">
-      <p>Нижченаведені позиції є припущеннями — не підтвердженими фактами. Кожне потребує явної валідації зі стейкхолдерами до базування рішень.</p>
-    </div>
+    <div class="section-label">09 / Decisions & Questions</div>
+    <h2 class="section-title">Confirmed Decisions</h2>
     <ul class="assumption-list">
-      <li>
-        <span class="a-code">A1</span>
-        <span class="a-text">Лікарі юридично мають право самостійно реєструватися та надавати онлайн-консультації як незалежні практики (не як найманці клініки) за чинним законодавством України. <strong>НЕ ПІДТВЕРДЖЕНО</strong> в ході наради — потребує юридичної перевірки.</span>
-      </li>
-      <li>
-        <span class="a-code">A2</span>
-        <span class="a-text">Модель «трудовий/сервісний договір» (лікар ← комісія платформи) відповідає українському податковому та трудовому праву. <strong>ВІДКРИТО.</strong></span>
-      </li>
-      <li>
-        <span class="a-code">A3</span>
-        <span class="a-text">Інтеграція Zoom API є достатньою для заявленого обсягу (~1000 сесій/день). Технічна валідація потрібна.</span>
-      </li>
-      <li>
-        <span class="a-code">A4</span>
-        <span class="a-text">Банківський API існує та підтримує автоматичні пакетні виплати на особисті картки фізичних осіб. Технічна валідація потрібна.</span>
-      </li>
-      <li>
-        <span class="a-code">A5</span>
-        <span class="a-text">Реєстрація за номером телефону є достатнім захистом від накрутки рейтингу. Розумне припущення, може потребувати додаткових засобів (один акаунт на номер).</span>
-      </li>
-      <li>
-        <span class="a-code">A6</span>
-        <span class="a-text">Окрема юридична особа буде зареєстрована до запуску платформи. Намір озвучений, терміни та структура не підтверджені.</span>
-      </li>
-      <li>
-        <span class="a-code">A7</span>
-        <span class="a-text">Лікарі самостійно мотивовані реєструватися, як тільки платформа з'явиться. Ринкове припущення — потребує валідації go-to-market стратегії.</span>
-      </li>
-      <li>
-        <span class="a-code">A8</span>
-        <span class="a-text">Щомісячна підписка та модель продажу контенту є прибутковими без критичної маси контенту на старті. Комерційне припущення — потребує валідації ціноутворення.</span>
-      </li>
+      <li><span class="a-code">D1</span><span class="a-text">V1 «версия один» — web/PWA only. Native apps out of scope.</span></li>
+      <li><span class="a-code">D2</span><span class="a-text">Zoom used manually via doctor-created link. No Zoom recording/transcription/storage.</span></li>
+      <li><span class="a-code">D3</span><span class="a-text">Medical files included: PDF/photo up to 25 MB. AWS storage. Patient medical history not required.</span></li>
+      <li><span class="a-code">D4</span><span class="a-text">Email-only notifications. Admin verifies doctors. Admin adds video content.</span></li>
+      <li><span class="a-code">D5</span><span class="a-text">Referral system included. Funds go to platform account first. No final accruals before final transaction status.</span></li>
+      <li><span class="a-code">D6</span><span class="a-text">Urgent consultation included as separate function. Turbo delivery mode selected.</span></li>
+    </ul>
+    <h2 class="section-title" style="margin-top:3rem;">Open Questions</h2>
+    <ul class="assumption-list">
+      <li><span class="a-code">Q1</span><span class="a-text">Фінальний банк/провайдер і деталі автоматизації payout flow.</span></li>
+      <li><span class="a-code">Q2</span><span class="a-text">Точна юридична модель виплат лікарям.</span></li>
+      <li><span class="a-code">Q3</span><span class="a-text">Точна податкова модель виводу реферальних коштів фізичним особам.</span></li>
+      <li><span class="a-code">Q4</span><span class="a-text">Фінальні тексти юридичних згод, disclaimer, terms, privacy і refund rules.</span></li>
     </ul>
   </div>
 </section>
 
-<!-- ══ 10. НАСТУПНІ КРОКИ ══ -->
 <section id="next">
   <div class="container">
-    <div class="section-label">10 / Next Steps</div>
-    <h2 class="section-title">Відкриті питання та наступні кроки</h2>
-
-    <h3 style="font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:1rem;">Рішення, необхідні до початку дизайну</h3>
-    <ul class="assumption-list" style="margin-bottom:2rem;">
-      <li><span class="a-code">D1</span><span class="a-text"><strong>Юридична валідація:</strong> Чи можуть лікарі надавати платні консультації як незалежні практики на маркетплейсі за чинним законодавством України?</span></li>
-      <li><span class="a-code">D2</span><span class="a-text"><strong>Правова структура:</strong> Яка точна правова та податкова форма для виплат лікарям? Договір про надання послуг, агентська модель чи інше?</span></li>
-      <li><span class="a-code">D3</span><span class="a-text"><strong>Назва платформи:</strong> Необхідна робоча назва для документації та дизайн-ресурсів.</span></li>
-      <li><span class="a-code">D4</span><span class="a-text"><strong>Платіжний провайдер:</strong> Яка платіжна система обробляє розщеплення платежів, реферальний рахунок і автовиплати?</span></li>
-      <li><span class="a-code">D5</span><span class="a-text"><strong>Захист даних:</strong> Хто є контролером даних медичних записів пацієнтів? Яка модель згоди потрібна?</span></li>
-    </ul>
-
+    <div class="section-label">10 / Delivery & Acceptance</div>
+    <h2 class="section-title">Delivery mode</h2>
+    <div class="callout gold"><p><strong>Замовник обрав прискорений / turbo delivery mode.</strong> Орієнтир бюджету: близько $40k у межах коридору $35-42k. Цільовий горизонт: приблизно 3 місяці / до кінця літа, якщо не буде блокерів по банку, юридичній моделі та інтеграціях.</p></div>
     <div class="steps-grid">
-      <div class="step-block">
-        <h3>Кроки BA</h3>
-        <ul>
-          <li>Зафіксувати скоп v1 — закрити перелік функцій з MoSCoW-пріоритизацією</li>
-          <li>Розробити User Stories для v1 з Критеріями прийняття</li>
-          <li>Огляд системної архітектури (технологічний стек, інтеграції, потоки даних)</li>
-          <li>Карта стейкхолдерів — визначити всіх внутрішніх і зовнішніх акторів</li>
-          <li>Детальні process flows: Реєстрація лікаря · Бронювання · Оплата · Виплата</li>
-          <li>Формалізувати реєстр ризиків з власниками і датами перегляду</li>
-        </ul>
-      </div>
-      <div class="step-block">
-        <h3>Відкриті питання</h3>
-        <ul>
-          <li>Деталі системної архітектури — на опрацювання</li>
-          <li>Технічне завдання — формується на наступному етапі</li>
-          <li>Підхід до UI/UX — мінімум кліків як ключовий принцип, деталі не визначені</li>
-          <li>Терміни розробки — потребують оцінки після фіксації скопу</li>
-        </ul>
-      </div>
-      <div class="step-block">
-        <h3>Дії з оцінки</h3>
-        <ul>
-          <li>Визначити фінальний список функцій MVP</li>
-          <li>Оцінити години розробки за компонентами</li>
-          <li>Розрахувати витрати (розробка + інфраструктура + інтеграції)</li>
-          <li>Визначити вимоги до команди та часові рамки</li>
-        </ul>
-      </div>
+      <div class="step-block"><h3>Stage 1 — Core platform foundation</h3><ul><li>Auth/roles</li><li>Patient/doctor/admin base</li><li>Doctor verification</li><li>Doctor profile/schedule/price</li><li>Search/filter</li><li>Legal consents</li><li>AWS file storage base</li></ul></div>
+      <div class="step-block"><h3>Stage 2 — Consultation/payment/referral core</h3><ul><li>Standard booking</li><li>Urgent consultation</li><li>Payment flow</li><li>Transaction statuses</li><li>Zoom link flow</li><li>Cancellation/refund/no-show rules</li><li>Commission and referral calculation</li><li>Email notifications</li></ul></div>
+      <div class="step-block"><h3>Stage 3 — Subscription/admin/stabilization</h3><ul><li>Video subscription</li><li>Admin content management</li><li>Payout flow</li><li>Referral balance/withdrawal logic</li><li>End-to-end testing</li><li>Security hardening</li><li>Acceptance scenario</li><li>Production readiness</li></ul></div>
     </div>
+    <h2 class="section-title" style="margin-top:3rem;">Definition of Done для V1 «версия один»</h2>
+    <p class="section-lead">Готовність означає, що працює повний контрольний сценарій: адмін підтвердив лікаря; лікар налаштував профіль, графік, ціну; пацієнт зареєструвався, знайшов лікаря, забронював консультацію; лікар підтвердив; пацієнт оплатив; лікар додав Zoom-посилання; пацієнт отримав посилання; консультація завершена; пацієнт залишив відгук; транзакція отримала фінальний статус; система розрахувала комісію платформи, суму лікаря і реферальні нарахування; адмін, пацієнт і лікар бачать коректні статуси.</p>
+    <h2 class="section-title" style="margin-top:3rem;">UI/UX principle</h2>
+    <div class="callout"><p><strong>Максимальна простота:</strong> мінімум кнопок, мінімум переходів, мінімум зайвих посилань. Пацієнт має мати змогу зареєструватися, знайти лікаря і перейти до бронювання без складної навігації. Орієнтир — користувач старшого віку, який не має просити допомоги родичів.</p></div>
   </div>
 </section>
 
 <footer>
-  <p><strong>Медична Платформа · Discovery Record</strong><br>
-  <span style="font-size:.72rem;color:#4A6A80;">Конфіденційно — внутрішній документ Discovery-фази · Усі позначки [ПРИПУЩЕННЯ] потребують підтвердження стейкхолдерів</span></p>
+  <p><strong>MedPlatform · Актуалізований Discovery / Scope Record</strong><br>
+  <span style="font-size:.72rem;color:#4A6A80;">Погоджений робочий обсяг для V1 «версия один» · Оновлено після уточнення scope, фінансової логіки, реферальної системи та delivery-підходу</span></p>
 </footer>
 
 </body>
