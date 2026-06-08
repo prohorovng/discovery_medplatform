@@ -209,6 +209,8 @@ section + section { border-top: 1px solid var(--rule); }
 .modules-table tr:hover td { background: var(--mist); }
 .modules-table td:first-child { font-weight: 600; color: var(--navy); white-space: nowrap; }
 .modules-table td.mono { font-family: 'DM Mono', monospace; font-size: .78rem; color: #3A5060; }
+.table-scroll { overflow-x: auto; margin-top: 1.5rem; }
+.table-scroll .modules-table, .table-scroll .risk-table { min-width: 980px; margin-top: 0; }
 
 /* ── ROLES ── */
 .roles-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
@@ -533,18 +535,18 @@ footer strong { color: #B0CCE0; }
 <body>
 
 <nav>
-  <div class="nav-logo">MedPlatform <span>V1</span></div>
+  <div class="nav-logo">MedPlatform <span>Discovery</span></div>
   <ul class="nav-links">
     <li><a href="#need">Потреба</a></li>
     <li><a href="#concept">Концепція</a></li>
     <li><a href="#modules">Модулі</a></li>
     <li><a href="#roles">Ролі</a></li>
     <li><a href="#model">Фінанси</a></li>
-    <li><a href="#scope">V1</a></li>
+    <li><a href="#scope">Scope</a></li>
     <li><a href="#wireframes">Вайрфрейми</a></li>
     <li><a href="#risks">Ризики</a></li>
     <li><a href="#decisions">Рішення</a></li>
-    <li><a href="#next">Delivery</a></li>
+    <li><a href="#next">Наступні кроки</a></li>
   </ul>
 </nav>
 
@@ -555,10 +557,10 @@ footer strong { color: #B0CCE0; }
     <p class="hero-sub fade">MedPlatform — PWA/web-платформа для онлайн-консультацій з верифікованими медичними спеціалістами, підписного відеоконтенту, реферальної системи, оплати консультацій, розрахунку комісій, лікарських виплат і базового адміністративного управління.</p>
     <div class="hero-meta fade">
       <div class="meta-item"><div class="label">Документ</div><div class="value">Актуалізований Discovery / Scope Record</div></div>
-      <div class="meta-item"><div class="label">Обсяг</div><div class="value">V1 «версия один»</div></div>
+      <div class="meta-item"><div class="label">Обсяг</div><div class="value">Початкова робоча версія платформи</div></div>
       <div class="meta-item"><div class="label">Стан</div><div class="value">Після уточнення scope, фінансової логіки, реферальної системи та delivery-підходу</div></div>
     </div>
-    <div class="hero-badge">Погоджений робочий обсяг для V1 «версия один»</div>
+    <div class="hero-badge">Погоджений робочий обсяг для початкової робочої версії платформи</div>
   </div>
 </div>
 
@@ -566,7 +568,7 @@ footer strong { color: #B0CCE0; }
   <div class="container">
     <div class="section-label">01 / Business Need</div>
     <h2 class="section-title">Бізнес-потреба та постановка проблеми</h2>
-    <p class="section-lead">Потрібна не просто вітрина лікарів, а робоча платформа для онлайн-консультацій широкого спектра медичних спеціалістів. Фокус V1 «версия один» — швидко запустити робочу PWA/web-версію, перевірити повний end-to-end сценарій і перейти до комерційної експлуатації.</p>
+    <p class="section-lead">Потрібна не просто вітрина лікарів, а робоча платформа для онлайн-консультацій широкого спектра медичних спеціалістів. Фокус початкової робочої версії платформи — швидко запустити робочу PWA/web-версію, перевірити повний end-to-end сценарій і перейти до комерційної експлуатації.</p>
     <div class="need-grid">
       <div class="need-item"><div class="need-icon">01</div><div><h4>Широкий спектр спеціалістів</h4><p>Стартовий перелік напрямів не обмежує архітектуру платформи.</p></div></div>
       <div class="need-item"><div class="need-icon">02</div><div><h4>Простий шлях пацієнта</h4><p>Мінімум кліків, мінімум переходів, зрозумілий UX навіть для користувача старшого віку.</p></div></div>
@@ -584,10 +586,10 @@ footer strong { color: #B0CCE0; }
     <h2 class="section-title">Концепція рішення</h2>
     <div class="callout gold"><p><strong>Ключове рішення:</strong> двостороння PWA/web-платформа, де пацієнт знаходить спеціаліста, лікар підтверджує консультацію, а платформа керує оплатою, статусами, комісіями, реферальною логікою, підписками та базовою операційною модерацією.</p></div>
     <div class="roles-grid">
-      <div class="role-card"><h3>PWA/web</h3><div class="role-tag">Technical form</div><ul><li>Цільове рішення для V1 «версия один»</li><li>Native iOS/Android apps не входять</li><li>App Store / Google Play publication не входить</li></ul></div>
+      <div class="role-card"><h3>PWA/web</h3><div class="role-tag">Technical form</div><ul><li>Цільове рішення для початкової робочої версії платформи</li><li>Native iOS/Android apps не входять</li><li>App Store / Google Play publication не входить</li></ul></div>
       <div class="role-card"><h3>Zoom flow</h3><div class="role-tag">Manual link</div><ul><li>Лікар створює Zoom-посилання у власному акаунті</li><li>Лікар вставляє посилання в платформу</li><li>Пацієнт бачить посилання в кабінеті та отримує email</li></ul></div>
       <div class="role-card"><h3>Відео-обмеження</h3><div class="role-tag">Out of scope</div><ul><li>Автоматичне створення Zoom-посилання через інтеграцію не входить</li><li>Власний відеодзвінок не розробляється</li><li>Запис, транскрибація і зберігання Zoom-консультацій не входять</li></ul></div>
-      <div class="role-card"><h3>Email</h3><div class="role-tag">Notifications</div><ul><li>Повідомлення лікаря про консультацію</li><li>Нагадування за 1 годину</li><li>Zoom-посилання та статуси оплат/скасувань/підписок</li></ul></div>
+      <div class="role-card"><h3>Email</h3><div class="role-tag">Notifications</div><ul><li>Реєстрація і підтвердження лікаря адміністратором</li><li>Консультація створена / потребує підтвердження лікаря / підтверджена лікарем</li><li>Оплата очікується, оплата успішна, Zoom-link added</li><li>Reminder before consultation, cancellation / no-show / refund status if applicable</li></ul></div>
     </div>
   </div>
 </section>
@@ -595,7 +597,7 @@ footer strong { color: #B0CCE0; }
 <section id="modules">
   <div class="container">
     <div class="section-label">03 / Solution Scope</div>
-    <h2 class="section-title">Модулі V1 «версия один»</h2>
+    <h2 class="section-title">Модулі початкової робочої версії платформи</h2>
     <p class="section-lead">Документ відображає останні рішення щодо запуску, обсягу, фінансової логіки, реферальної системи, консультацій, підписок і delivery-підходу.</p>
     <table class="modules-table">
       <thead><tr><th>Модуль</th><th>Опис</th><th>Логіка</th><th>Обсяг</th></tr></thead>
@@ -626,8 +628,8 @@ footer strong { color: #B0CCE0; }
     <div class="roles-grid">
       <div class="role-card"><h3>Пацієнт</h3><div class="role-tag">Primary User</div><ul><li>Реєстрація з повним набором даних</li><li>Вибір лікаря, слоту або термінового запиту</li><li>Оплата консультації та отримання Zoom-посилання</li><li>Завантаження PDF/фото до 25 MB і надання доступу лікарю</li><li>Підписка на відеопрограми</li><li>Перегляд і використання реферального балансу за затвердженою фінансовою логікою</li></ul></div>
       <div class="role-card doctor"><h3>Лікар / спеціаліст</h3><div class="role-tag">Supply Side</div><ul><li>Завантаження диплома, ліцензії, сертифікатів</li><li>Очікування підтвердження адміністратором</li><li>Налаштування графіка, тривалості, мов</li><li>Прапорець «надає термінові консультації»</li><li>Підтвердження консультації</li><li>Створення Zoom-посилання у власному акаунті</li><li>Перегляд статусів і розрахунку виплати</li></ul></div>
-      <div class="role-card admin"><h3>Адміністратор</h3><div class="role-tag">Operations</div><ul><li>Верифікація лікарів</li><li>Індивідуальні комісії та історія змін</li><li>Відеопрограми і контент</li><li>Статуси транзакцій і спірні ситуації</li><li>Реферальні нарахування</li><li>Юридичні згоди і модерація відгуків</li></ul></div>
-      <div class="role-card"><h3>Медичний напрям</h3><div class="role-tag">Specialty</div><ul><li>Нутриціолог, реабілітолог, дерматолог/косметолог та інші напрями є спеціальностями</li><li>Зовнішні спеціалісти не додають і не продають власний контент у V1 «версия один»</li></ul></div>
+      <div class="role-card admin"><h3>Адміністратор</h3><div class="role-tag">Operations</div><ul><li>Перевірка, підтвердження або відхилення лікарів</li><li>Перегляд користувачів, консультацій, транзакцій і статусів оплат</li><li>Перегляд payout status і referral status</li><li>Admin review для refund / no-show / technical issue cases</li><li>Управління відеоконтентом</li><li>Модерація проблемних або фродових відгуків</li></ul></div>
+      <div class="role-card"><h3>Медичний напрям</h3><div class="role-tag">Specialty</div><ul><li>Стартовий перелік спеціальностей формується на основі погодженого переліку, але має залишати можливість розширення відповідно до бізнес-рішення замовника.</li><li>Зовнішні спеціалісти не додають і не продають власний контент у початковій робочій версії платформи</li></ul></div>
     </div>
   </div>
 </section>
@@ -636,6 +638,8 @@ footer strong { color: #B0CCE0; }
   <div class="container">
     <div class="section-label">05 / Business Model</div>
     <h2 class="section-title">Бізнес-модель та платіжний flow</h2>
+    <div class="callout warn"><p><strong>Критична залежність: банк / платіжна архітектура.</strong> Фінальна деталізація фінансової архітектури, payout flow, реферальних нарахувань і податкової моделі залежить від підтвердження можливостей банку / платіжного провайдера. Поточний кандидат для перевірки — Ukrsibbank. Очікується підтвердження з головного офісу щодо підтримки tax-agent logic, split / multi-account model, виплат фізичним особам, реферальних виплат, API-інтеграції та автоматизованого payout flow. До отримання відповіді банку фінансову архітектуру вважати dependency, а не повністю закритим рішенням.</p></div>
+    <div class="callout"><p><strong>Архітектурна гіпотеза: Referral Engine.</strong> Реферальна логіка може бути винесена в окремий reusable Referral Engine service, який потенційно використовується не тільки MedPlatform, але й MedNyan. Це архітектурна гіпотеза, а не фінальне технічне рішення. Остаточно підтвердити після аналізу банківської / платіжної моделі.</p></div>
     <table class="modules-table">
       <tbody>
         <tr><td>1</td><td>Пацієнт обирає лікаря/слот або створює запит на термінову консультацію.</td><td class="mono">Start</td></tr>
@@ -647,6 +651,7 @@ footer strong { color: #B0CCE0; }
       </tbody>
     </table>
     <div class="callout warn"><p><strong>Фінансове правило:</strong> жодні фінансові нарахування не є фінальними до фінального статусу транзакції. Попередній розрахунок може відображатися як preview, але не може бути доступний до виплати або виводу.</p></div>
+    <div class="callout gold"><p><strong>Risk / dependency note:</strong> якщо банк або платіжний провайдер не підтримує потрібну модель, фінансова архітектура може потребувати перегляду. Це впливає на payout flow, реферальну систему, податкову логіку, статуси транзакцій і delivery-план.</p></div>
   </div>
 </section>
 
@@ -663,13 +668,13 @@ footer strong { color: #B0CCE0; }
     </tbody></table>
 
     <h2 class="section-title" style="margin-top:3rem;">Початкова робоча версія платформи</h2>
-    <p class="section-lead">V1 «версия один» має забезпечити повний контрольний сценарій: адмін підтвердив лікаря; лікар налаштував профіль і графік; пацієнт зареєструвався, знайшов лікаря, забронював консультацію; лікар підтвердив; пацієнт оплатив; лікар додав Zoom-посилання; пацієнт отримав посилання; консультація завершена; пацієнт залишив відгук; транзакція отримала фінальний статус; система розрахувала комісію платформи, суму лікаря і реферальні нарахування.</p>
+    <p class="section-lead">Початкова робоча версія платформи має забезпечити повний контрольний сценарій: адмін підтвердив лікаря; лікар налаштував профіль і графік; пацієнт зареєструвався, знайшов лікаря, забронював консультацію; лікар підтвердив; пацієнт оплатив; лікар додав Zoom-посилання; пацієнт отримав посилання; консультація завершена; пацієнт залишив відгук; транзакція отримала фінальний статус; система розрахувала комісію платформи, суму лікаря і реферальні нарахування.</p>
 
     <h2 class="section-title" style="margin-top:3rem;">Юридичні згоди та дані</h2>
-    <p class="section-lead">Перед оплатою/консультацією користувач приймає згоду на обробку персональних даних, згоду на обробку медичних даних, privacy policy, terms of use, online-consultation disclaimer, payment/cancellation/refund rules. Marketing consent — optional checkbox. AWS є цільовим сховищем; доступ до файлів надається тільки конкретному лікарю в межах конкретної консультації.</p>
+    <p class="section-lead">Перед оплатою/консультацією користувач приймає згоду на обробку персональних даних, згоду на обробку медичних даних, privacy policy, platform terms, online-consultation disclaimer, payment/cancellation/refund rules. Marketing consent — separate optional checkbox. Юридичні тексти мають бути підготовлені / перевірені юристом. AWS є цільовим напрямом сховища; доступ до файлів надається тільки конкретному лікарю в межах конкретної консультації. Захист персональних і медичних даних є критичним; запис Zoom-консультацій у початковій робочій версії платформи не входить.</p>
 
-    <h2 class="section-title" style="margin-top:3rem;">Не входить у V1 «версия один»</h2>
-    <p class="section-lead">AI features, symptom checker, AI triage, автоматичний вибір лікаря за симптомами, voice search, AI recommendations, treatment plans, medication reminders, AI follow-up, Zoom recording/transcription/storage, automatic Zoom link creation, own video-call infrastructure, native apps, App Store / Google Play publication, eHealth / ЕСОЗ, e-prescriptions, laboratory/pharmacy integrations, full electronic medical record, DICOM/MRI/CT/large files over 25 MB, knowledge base, external specialist courses, marketplace of courses/products, clinic accounts, clinic CRM, BI dashboards, complex admin roles, partner accounts, manual booking editing, advanced financial reporting/export.</p>
+    <h2 class="section-title" style="margin-top:3rem;">Поза межами початкової робочої версії платформи</h2>
+    <p class="section-lead">AI features, symptom checker, AI triage, автоматичний вибір лікаря за симптомами, voice search, AI recommendations, AI consultation / effectiveness analysis, treatment plans, medication reminders, pill stock counting, AI follow-up, Zoom recording/transcription/storage, Zoom API automatic link creation, own video-call infrastructure, native mobile apps, App Store / Google Play publication, eHealth / ЕСОЗ, e-prescriptions, laboratory/pharmacy integrations, referrals to lab diagnostics, full electronic medical record, long-term storage of large medical archives, DICOM/MRI/CT/large files over 25 MB, AI knowledge base, doctor / student knowledge base, external specialist courses, marketplace of video courses, marketplace of medical or cosmetology products, clinic accounts, clinic CRM, BI dashboards, extended content moderation, complex admin roles, partner accounts for labs / pharmacies / clinics, manual booking editing, advanced financial reporting/export.</p>
   </div>
 </section>
 
@@ -677,14 +682,16 @@ footer strong { color: #B0CCE0; }
   <div class="container">
     <div class="section-label">07 / Wireframes Update</div>
     <h2 class="section-title">Вайрфрейми екранів</h2>
-    <div class="wf-intro-note">Оновлені вимоги до lo-fi екранів для V1 «версия один».</div>
+    <div class="wf-intro-note">Оновлені вимоги до lo-fi екранів для початкової робочої версії платформи.</div>
     <div class="wf-grid">
       <div class="wf-card"><div class="wf-card-header"><span class="wf-title">WF-02 Patient Registration</span><span class="wf-num">Auth</span></div><div class="wf-annotation"><ul><li>Телефон, email, дата народження, стать, місто</li><li>Паспортні дані, ІПН/податковий номер, банківська карта</li><li>Юридичні згоди</li></ul></div></div>
+      <div class="wf-card"><div class="wf-card-header"><span class="wf-title">WF-02B Doctor Registration</span><span class="wf-num">Auth</span></div><div class="wf-annotation"><ul><li>Диплом, ліцензія, сертифікати</li><li>Статус очікування admin verification</li><li>Неактивний профіль до підтвердження</li></ul></div></div>
       <div class="wf-card"><div class="wf-card-header"><span class="wf-title">WF-03 Search</span><span class="wf-num">Discovery</span></div><div class="wf-annotation"><ul><li>Фільтри: спеціальність, рейтинг, мова, години</li><li>Пошук за прізвищем</li><li>Фільтри «термінова консультація» і «доступний зараз»</li></ul></div></div>
       <div class="wf-card"><div class="wf-card-header"><span class="wf-title">WF-04 Doctor Profile</span><span class="wf-num">Profile</span></div><div class="wf-annotation"><ul><li>Графік, мови, рейтинг</li><li>CTA «Записатися»</li><li>CTA «Термінова консультація», якщо лікар увімкнув режим</li></ul></div></div>
       <div class="wf-card"><div class="wf-card-header"><span class="wf-title">WF-06 Doctor Dashboard</span><span class="wf-num">Doctor</span></div><div class="wf-annotation"><ul><li>Checkbox «надаю термінові консультації»</li><li>Zoom-посилання, очікують підтвердження, фінансові статуси</li><li>Комісія платформи / сума лікаря / реферальні бонуси</li></ul></div></div>
       <div class="wf-card"><div class="wf-card-header"><span class="wf-title">WF-07 Booking / Payment</span><span class="wf-num">Flow</span></div><div class="wf-annotation"><ul><li>Вибір слоту → Підтвердження лікаря → Оплата → Zoom-посилання</li><li>Терміново: Запит → Підтвердження лікаря → Оплата → Старт консультації</li></ul></div></div>
-      <div class="wf-card"><div class="wf-card-header"><span class="wf-title">WF-08 Consultation / Admin</span><span class="wf-num">Ops</span></div><div class="wf-annotation"><ul><li>Перехід за Zoom-посиланням, без власного відеостеку</li><li>Платформа зберігає посилання і статус, але не записує консультацію</li><li>Admin: комісії, історія змін, фінальні статуси, реферальні нарахування, refund review</li></ul></div></div>
+      <div class="wf-card"><div class="wf-card-header"><span class="wf-title">WF-08 Consultation / Review</span><span class="wf-num">Ops</span></div><div class="wf-annotation"><ul><li>Перехід за Zoom-посиланням, без власного відеостеку</li><li>Платформа зберігає посилання і статус, але не записує консультацію</li><li>Відгук доступний тільки після завершеної консультації і фінального статусу</li></ul></div></div>
+      <div class="wf-card"><div class="wf-card-header"><span class="wf-title">WF-09 Admin Finance</span><span class="wf-num">Admin</span></div><div class="wf-annotation"><ul><li>Doctor approval / rejection</li><li>Payment, payout і referral status</li><li>Refund / no-show / technical issue admin review</li></ul></div></div>
     </div>
   </div>
 </section>
@@ -693,18 +700,24 @@ footer strong { color: #B0CCE0; }
   <div class="container">
     <div class="section-label">08 / Risk Register</div>
     <h2 class="section-title">Реєстр ризиків</h2>
-    <table class="risk-table">
-      <thead><tr><th>Ризик</th><th style="text-align:center">Вплив</th><th>Пом'якшення / наступний крок</th></tr></thead>
-      <tbody>
-        <tr><td>Банк/провайдер може не підтримати потрібну фінансову модель</td><td style="text-align:center"><span class="tag tag-high">HIGH</span></td><td>Валідувати провайдера і тимчасову операційну процедуру.</td></tr>
-        <tr><td>Податкова логіка реферальних виплат фізичним особам</td><td style="text-align:center"><span class="tag tag-high">HIGH</span></td><td>Юридично підтвердити модель нарахування, використання і виводу коштів.</td></tr>
-        <tr><td>Юридичний статус платформи як посередника</td><td style="text-align:center"><span class="tag tag-high">HIGH</span></td><td>Підготувати договори, дисклеймери, terms, privacy і правила консультацій.</td></tr>
-        <tr><td>Захист персональних і медичних даних</td><td style="text-align:center"><span class="tag tag-high">HIGH</span></td><td>AWS storage, політика доступу, мінімізація даних, юридичні згоди.</td></tr>
-        <tr><td>Scope pressure через реферальну систему, виплати, підписки і термінові консультації</td><td style="text-align:center"><span class="tag tag-high">HIGH</span></td><td>Фіксувати acceptance criteria і двотижневі increments з sign-off.</td></tr>
-        <tr><td>Складний UX може зламати цінність для літніх користувачів</td><td style="text-align:center"><span class="tag tag-high">HIGH</span></td><td>Мінімум кнопок, переходів і зайвих посилань.</td></tr>
-        <tr><td>Ручне Zoom-посилання, email-only notifications, фрод документів, маніпуляції рейтингом, no-show спори</td><td style="text-align:center"><span class="tag tag-mid">MED</span></td><td>Статуси очікування, адмінський контроль, модерація, refund review.</td></tr>
-      </tbody>
-    </table>
+    <div class="table-scroll">
+      <table class="risk-table">
+        <thead><tr><th>Ризик</th><th style="text-align:center">Вплив</th><th style="text-align:center">Ймовірність</th><th>Пом'якшення / owner / dependency</th></tr></thead>
+        <tbody>
+          <tr><td>Банк / платіжний провайдер не підтримує потрібну фінансову модель</td><td style="text-align:center"><span class="tag tag-high">HIGH</span></td><td style="text-align:center"><span class="tag tag-mid">MED</span></td><td>Dependency: підтвердити tax-agent logic, split / multi-account model, API і payout flow до фіналізації delivery-плану.</td></tr>
+          <tr><td>Ukrsibbank або інший банк не підтвердить tax-agent / split / multi-account / API capabilities</td><td style="text-align:center"><span class="tag tag-high">HIGH</span></td><td style="text-align:center"><span class="tag tag-mid">MED</span></td><td>Ukrsibbank лишається кандидатом для перевірки; потрібен fallback-план для іншого провайдера.</td></tr>
+          <tr><td>Реферальна система може потребувати окремого Referral Engine service</td><td style="text-align:center"><span class="tag tag-mid">MED</span></td><td style="text-align:center"><span class="tag tag-mid">MED</span></td><td>Позначити Referral Engine як архітектурну гіпотезу; підтвердити після банківської / платіжної моделі.</td></tr>
+          <tr><td>Юридична модель виплат лікарям і фізичним особам не підтверджена</td><td style="text-align:center"><span class="tag tag-high">HIGH</span></td><td style="text-align:center"><span class="tag tag-mid">MED</span></td><td>Owner / dependency: юрист і фінансовий консультант; не фіналізувати payout rules без перевірки.</td></tr>
+          <tr><td>Податкова логіка referral payouts не підтверджена</td><td style="text-align:center"><span class="tag tag-high">HIGH</span></td><td style="text-align:center"><span class="tag tag-mid">MED</span></td><td>Юридично підтвердити модель нарахування, використання і виводу коштів.</td></tr>
+          <tr><td>Захист персональних і медичних даних</td><td style="text-align:center"><span class="tag tag-high">HIGH</span></td><td style="text-align:center"><span class="tag tag-mid">MED</span></td><td>AWS storage, consultation-specific доступ до файлів, мінімізація даних, юридичні згоди.</td></tr>
+          <tr><td>Складний UX може зламати цінність для користувачів старшого віку</td><td style="text-align:center"><span class="tag tag-high">HIGH</span></td><td style="text-align:center"><span class="tag tag-mid">MED</span></td><td>Мінімум кнопок, переходів і зайвих посилань; mobile-first QA на 375 / 768 / 1024 / 1440 px.</td></tr>
+          <tr><td>Темний або надто “важкий” медичний UI може знижувати довіру</td><td style="text-align:center"><span class="tag tag-mid">MED</span></td><td style="text-align:center"><span class="tag tag-low">LOW</span></td><td>Тримати світлий, простий, медично стриманий інтерфейс без неону, хаотичних градієнтів і emoji-іконок.</td></tr>
+          <tr><td>Ручний Zoom-link flow може створювати операційні помилки</td><td style="text-align:center"><span class="tag tag-mid">MED</span></td><td style="text-align:center"><span class="tag tag-mid">MED</span></td><td>Статуси очікування, валідація посилання, email-повідомлення, видимість у кабінетах пацієнта і лікаря.</td></tr>
+          <tr><td>Email-only notifications можуть бути недостатніми для термінових консультацій</td><td style="text-align:center"><span class="tag tag-mid">MED</span></td><td style="text-align:center"><span class="tag tag-mid">MED</span></td><td>Залишається прийнятим обмеженням початкової робочої версії платформи; явно фіксувати у delivery-ризиках.</td></tr>
+          <tr><td>Пізнє bank/payment confirmation може змінити фінансову архітектуру і delivery-план</td><td style="text-align:center"><span class="tag tag-high">HIGH</span></td><td style="text-align:center"><span class="tag tag-mid">MED</span></td><td>Кожні 2 тижні перевіряти dependency status і не переводити непідтверджені рішення в закриті.</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>
 
@@ -713,43 +726,78 @@ footer strong { color: #B0CCE0; }
     <div class="section-label">09 / Decisions & Questions</div>
     <h2 class="section-title">Confirmed Decisions</h2>
     <ul class="assumption-list">
-      <li><span class="a-code">D1</span><span class="a-text">V1 «версия один» — web/PWA only. Native apps out of scope.</span></li>
+      <li><span class="a-code">D1</span><span class="a-text">Початкова робоча версія платформи — web/PWA only. Native apps out of scope.</span></li>
       <li><span class="a-code">D2</span><span class="a-text">Zoom used manually via doctor-created link. No Zoom recording/transcription/storage.</span></li>
       <li><span class="a-code">D3</span><span class="a-text">Medical files included: PDF/photo up to 25 MB. AWS storage. Patient medical history not required.</span></li>
       <li><span class="a-code">D4</span><span class="a-text">Email-only notifications. Admin verifies doctors. Admin adds video content.</span></li>
       <li><span class="a-code">D5</span><span class="a-text">Referral system included. Funds go to platform account first. No final accruals before final transaction status.</span></li>
       <li><span class="a-code">D6</span><span class="a-text">Urgent consultation included as separate function. Turbo delivery mode selected.</span></li>
+      <li><span class="a-code">D7</span><span class="a-text">Reviews after consultation included: відгук доступний тільки після завершеної консультації і фінального статусу.</span></li>
     </ul>
     <h2 class="section-title" style="margin-top:3rem;">Open Questions</h2>
     <ul class="assumption-list">
-      <li><span class="a-code">Q1</span><span class="a-text">Фінальний банк/провайдер і деталі автоматизації payout flow.</span></li>
+      <li><span class="a-code">Q1</span><span class="a-text">Фінальний банк/провайдер і деталі автоматизації payout flow. Ukrsibbank — кандидат для перевірки, не фінально обраний банк.</span></li>
       <li><span class="a-code">Q2</span><span class="a-text">Точна юридична модель виплат лікарям.</span></li>
       <li><span class="a-code">Q3</span><span class="a-text">Точна податкова модель виводу реферальних коштів фізичним особам.</span></li>
       <li><span class="a-code">Q4</span><span class="a-text">Фінальні тексти юридичних згод, disclaimer, terms, privacy і refund rules.</span></li>
+      <li><span class="a-code">Q5</span><span class="a-text">Referral Engine як reusable service — архітектурна гіпотеза, потребує підтвердження після аналізу банківської / платіжної моделі.</span></li>
     </ul>
   </div>
 </section>
 
 <section id="next">
   <div class="container">
-    <div class="section-label">10 / Delivery & Acceptance</div>
-    <h2 class="section-title">Delivery mode</h2>
-    <div class="callout gold"><p><strong>Замовник обрав прискорений / turbo delivery mode.</strong> Цільовий горизонт: приблизно 3 місяці / до кінця літа, якщо не буде блокерів по банку, юридичній моделі та інтеграціях.</p></div>
-    <div class="steps-grid">
-      <div class="step-block"><h3>Stage 1 — Core platform foundation</h3><ul><li>Auth/roles</li><li>Patient/doctor/admin base</li><li>Doctor verification</li><li>Doctor profile/schedule</li><li>Search/filter</li><li>Legal consents</li><li>AWS file storage base</li></ul></div>
-      <div class="step-block"><h3>Stage 2 — Consultation/payment/referral core</h3><ul><li>Standard booking</li><li>Urgent consultation</li><li>Payment flow</li><li>Transaction statuses</li><li>Zoom link flow</li><li>Cancellation/refund/no-show rules</li><li>Commission and referral calculation</li><li>Email notifications</li></ul></div>
-      <div class="step-block"><h3>Stage 3 — Subscription/admin/stabilization</h3><ul><li>Video subscription</li><li>Admin content management</li><li>Payout flow</li><li>Referral balance/withdrawal logic</li><li>End-to-end testing</li><li>Security hardening</li><li>Acceptance scenario</li><li>Production readiness</li></ul></div>
+    <div class="section-label">10 / Наступні кроки, delivery-план і критерії приймання</div>
+    <h2 class="section-title">Наступні кроки, delivery-план і критерії приймання</h2>
+
+    <div class="callout warn"><p><strong>Критична залежність: банк / платіжна архітектура.</strong> Фінальна деталізація фінансової архітектури, payout flow, реферальних нарахувань і податкової моделі залежить від підтвердження можливостей банку / платіжного провайдера. Поточний кандидат для перевірки — Ukrsibbank. Очікується підтвердження з головного офісу щодо підтримки tax-agent logic, split / multi-account model, виплат фізичним особам, реферальних виплат, API-інтеграції та автоматизованого payout flow. До отримання відповіді банку фінансову архітектуру вважати dependency, а не повністю закритим рішенням.</p></div>
+
+    <div class="callout gold"><p><strong>Delivery mode: прискорена реалізація.</strong> Замовник обрав прискорений delivery mode. Орієнтир реалізації — приблизно 3 місяці / до кінця літа за умови відсутності критичних блокерів по банку, юридичній моделі та інтеграціях. Орієнтовний бюджетний коридор — 35–42k USD; робочий орієнтир, погоджений усно, — близько 40k USD. Остаточна деталізація бюджету, годин і фінансової архітектури залежить від підтвердження банку / платіжного провайдера.</p></div>
+
+    <div class="callout"><p><strong>Архітектурна гіпотеза: Referral Engine.</strong> Реферальна логіка може бути винесена в окремий reusable Referral Engine service, який потенційно використовується не тільки MedPlatform, але й MedNyan. Це архітектурна гіпотеза, а не фінальне технічне рішення. Остаточно підтвердити після аналізу банківської / платіжної моделі.</p></div>
+
+    <div class="table-scroll">
+      <table class="modules-table">
+        <thead><tr><th>Етап</th><th>Інкремент</th><th>Основні задачі</th><th>Acceptance criteria</th><th>Dependency / ризик</th><th>Орієнтовні години / бюджет</th></tr></thead>
+        <tbody>
+          <tr><td>Етап 1 — Core Platform Foundation</td><td>Auth / ролі / базова структура кабінетів</td><td>Ролі пацієнта, лікаря й адміністратора; базові кабінети; юридичні згоди перед consultation/payment.</td><td>Пацієнт може зареєструватися; лікар може зареєструватися; користувач бачить потрібні ролі й статуси.</td><td>Юридичні вимоги до даних пацієнта і лікаря потребують перевірки.</td><td>TBD після підтвердження банку / фінансової архітектури</td></tr>
+          <tr><td>Етап 1 — Core Platform Foundation</td><td>Реєстрація лікаря / документи / admin verification</td><td>Диплом, ліцензія, сертифікати; підтвердження або відхилення лікаря адміністратором.</td><td>Лікар може завантажити документи; адміністратор може підтвердити або відхилити лікаря; непідтверджений лікар не активний.</td><td>Не перевантажувати реєстрацію зайвими кроками.</td><td>TBD після підтвердження банку / фінансової архітектури</td></tr>
+          <tr><td>Етап 1 — Core Platform Foundation</td><td>Профіль лікаря / графік / ціна / мови / термінові консультації</td><td>Профіль лікаря, графік, тривалість, ціна, мови, прапорець “надає термінові консультації”.</td><td>Підтверджений лікар може заповнити профіль, налаштувати графік, ціну, мови і термінові консультації.</td><td>UX має залишатися простим для користувачів старшого віку.</td><td>TBD після підтвердження банку / фінансової архітектури</td></tr>
+          <tr><td>Етап 1 — Core Platform Foundation</td><td>Пошук лікаря / фільтри / базовий UX пацієнта</td><td>Пошук за спеціальністю, рейтингом, мовою, доступними годинами, прізвищем і терміновою консультацією.</td><td>Пацієнт може знайти лікаря через пошук і фільтри.</td><td>Складний UX може зламати цінність для старших користувачів.</td><td>TBD після підтвердження банку / фінансової архітектури</td></tr>
+
+          <tr><td>Етап 2 — Consultation / Payment / Referral Core</td><td>Стандартне бронювання</td><td>Лікар → слот → підтвердження лікаря → оплата.</td><td>Пацієнт може обрати лікаря і доступний слот; лікар отримує повідомлення і підтверджує консультацію; пацієнт оплачує після підтвердження.</td><td>Email-only notifications залишаються обмеженням початкової робочої версії платформи.</td><td>TBD після підтвердження банку / фінансової архітектури</td></tr>
+          <tr><td>Етап 2 — Consultation / Payment / Referral Core</td><td>Термінова консультація</td><td>Запит на конкретного лікаря або доступних лікарів → підтвердження лікаря → оплата → старт.</td><td>Пацієнт створює терміновий запит; лікар підтверджує; консультація може початися після оплати.</td><td>Email-only notifications можуть бути недостатніми для термінових консультацій.</td><td>TBD після підтвердження банку / фінансової архітектури</td></tr>
+          <tr><td>Етап 2 — Consultation / Payment / Referral Core</td><td>Zoom-link procedure</td><td>Лікар створює або копіює Zoom-посилання у власному акаунті, вставляє його у платформу; пацієнт бачить посилання в кабінеті й отримує email.</td><td>Пацієнт відкриває посилання і заходить на консультацію; система показує статус Zoom-link added.</td><td>Ручний Zoom-link flow може створювати операційні помилки; потрібні статуси і валідація посилання.</td><td>TBD після підтвердження банку / фінансової архітектури</td></tr>
+          <tr><td>Етап 2 — Consultation / Payment / Referral Core</td><td>Transaction statuses / cancellation / refund / no-show</td><td>Статуси очікування, фінального рішення, cancellation, refund, no-show і technical issue.</td><td>Після консультації транзакція отримує фінальний статус; no-show, refund і technical issue мають окремі статуси / admin review.</td><td>Rules мають бути перевірені юридично.</td><td>TBD після підтвердження банку / фінансової архітектури</td></tr>
+          <tr><td>Етап 2 — Consultation / Payment / Referral Core</td><td>Комісія / сума лікаря / реферальні нарахування</td><td>Preview розрахунку до фінального статусу; фіналізація тільки після final transaction status.</td><td>Тільки після фінального статусу система фіналізує комісію платформи, суму лікаря і реферальні нарахування; лікарські referral accruals застосовуються тільки якщо лікар є реферером пацієнта.</td><td>Фінальна логіка платежів, tax-agent logic і payout API залежать від банку / платіжного провайдера.</td><td>TBD після підтвердження банку / фінансової архітектури</td></tr>
+          <tr><td>Етап 2 — Consultation / Payment / Referral Core</td><td>Email notifications</td><td>Registration, doctor approval, consultation created, doctor confirmation needed, doctor confirmed, payment expected/successful, Zoom-link added, reminder, cancellation / no-show / refund status.</td><td>Ключові статуси консультації і платежу доходять email-повідомленням.</td><td>Email-only notifications можуть бути недостатніми для термінових консультацій.</td><td>TBD після підтвердження банку / фінансової архітектури</td></tr>
+
+          <tr><td>Етап 3 — Subscription / Admin / Stabilization</td><td>Відеоконтент за підпискою</td><td>Пакет / категорія / програма; щомісячна підписка; online-only video; download disabled.</td><td>Користувач може оплатити підписку; доступ активний тільки протягом оплаченого періоду; якщо підписка не продовжена, доступ блокується автоматично.</td><td>Контент від зовнішніх спеціалістів — later / out of scope.</td><td>TBD після підтвердження банку / фінансової архітектури</td></tr>
+          <tr><td>Етап 3 — Subscription / Admin / Stabilization</td><td>Admin content management</td><td>Додавання відеопрограм адміністратором; перегляд користувачів, консультацій, транзакцій, оплат, payout status і referral status.</td><td>Адміністратор може додавати відеопрограми і бачити операційні статуси.</td><td>Не додавати complex admin roles / BI dashboards без підтвердження.</td><td>TBD після підтвердження банку / фінансової архітектури</td></tr>
+          <tr><td>Етап 3 — Subscription / Admin / Stabilization</td><td>Referral balance / withdrawal logic</td><td>Баланс користувача, withdrawal flow, admin review для payout/referral status.</td><td>Referral balance видимий; withdrawal logic не фіналізується без юридичної і податкової моделі.</td><td>Referral payouts фізичним особам потребують підтвердження.</td><td>TBD після підтвердження банку / фінансової архітектури</td></tr>
+          <tr><td>Етап 3 — Subscription / Admin / Stabilization</td><td>Payout flow</td><td>Автоматизований payout після фінального рішення транзакції, якщо банк / провайдер підтримує потрібну модель.</td><td>Фінальний end-to-end сценарій проходить без ручного втручання, крім місць, позначених як operational fallback.</td><td>Payout flow залежить від банку / платіжного провайдера.</td><td>TBD після підтвердження банку / фінансової архітектури</td></tr>
+          <tr><td>Етап 3 — Subscription / Admin / Stabilization</td><td>Reviews після консультації</td><td>Відгук після завершеної консультації; модерація проблемних або фродових відгуків адміністратором.</td><td>Пацієнт може залишити відгук тільки після завершеної консультації; відгук прив'язаний до консультації; рейтинг лікаря може враховувати такі відгуки.</td><td>Не дозволяти відгук до консультації або користувачу, який не був пацієнтом у цій консультації.</td><td>TBD після підтвердження банку / фінансової архітектури</td></tr>
+          <tr><td>Етап 3 — Subscription / Admin / Stabilization</td><td>Security hardening / responsive QA / production readiness</td><td>Захист персональних і медичних даних; mobile-first QA; visible focus states; reduced motion; final acceptance checklist.</td><td>Основні сценарії працюють на 375 / 768 / 1024 / 1440 px; доступ до медичних файлів consultation-specific; no Zoom recording.</td><td>Security / personal data / medical data requirements потребують юридичної перевірки.</td><td>TBD після підтвердження банку / фінансової архітектури</td></tr>
+        </tbody>
+      </table>
     </div>
-    <h2 class="section-title" style="margin-top:3rem;">Definition of Done для V1 «версия один»</h2>
-    <p class="section-lead">Готовність означає, що працює повний контрольний сценарій: адмін підтвердив лікаря; лікар налаштував профіль і графік; пацієнт зареєструвався, знайшов лікаря, забронював консультацію; лікар підтвердив; пацієнт оплатив; лікар додав Zoom-посилання; пацієнт отримав посилання; консультація завершена; пацієнт залишив відгук; транзакція отримала фінальний статус; система розрахувала комісію платформи, суму лікаря і реферальні нарахування; адмін, пацієнт і лікар бачать коректні статуси.</p>
-    <h2 class="section-title" style="margin-top:3rem;">UI/UX principle</h2>
-    <div class="callout"><p><strong>Максимальна простота:</strong> мінімум кнопок, мінімум переходів, мінімум зайвих посилань. Пацієнт має мати змогу зареєструватися, знайти лікаря і перейти до бронювання без складної навігації. Орієнтир — користувач старшого віку, який не має просити допомоги родичів.</p></div>
+
+    <h2 class="section-title" style="margin-top:3rem;">Демонстрації та sign-off кожні 2 тижні</h2>
+    <div class="callout"><p>Delivery ведеться інкрементально. Кожні 2 тижні команда має показувати робочий результат, який можна перевірити за acceptance criteria. Після демонстрації замовник підтверджує інкремент або надає список правок. Непідтверджені рішення не переходять у наступний етап як закриті. Кожен інкремент має завершуватися демонстрацією, коротким acceptance checklist і фіксацією відкритих питань.</p></div>
+
+    <h2 class="section-title" style="margin-top:3rem;">Критерій готовності початкової робочої версії платформи</h2>
+    <p class="section-lead">Початкова робоча версія платформи вважається готовою, якщо один повний контрольний сценарій проходить end-to-end: пацієнт реєструється; лікар реєструється і завантажує документи; адміністратор підтверджує лікаря; лікар налаштовує профіль, графік, ціну, мови і прапорець термінових консультацій; пацієнт знаходить лікаря, бронює стандартну або термінову консультацію; лікар підтверджує; пацієнт оплачує; лікар додає Zoom-посилання; пацієнт отримує його в кабінеті та email; консультація завершується; пацієнт залишає відгук; транзакція отримує фінальний статус; система фіналізує комісію платформи, суму лікаря і реферальні нарахування; адміністратор бачить payment, payout, referral, refund / no-show / technical issue statuses.</p>
+
+    <div class="steps-grid">
+      <div class="step-block"><h3>Definition of Done</h3><ul><li>Patient registration, doctor registration і admin doctor verification працюють.</li><li>Medical files: PDF / фото до 25 MB, доступ тільки конкретному лікарю в межах консультації.</li><li>Zoom-link procedure відображена в doctor flow, patient flow, consultation status і UI.</li><li>Financial logic не фіналізує нічого до final transaction status.</li><li>Reviews after consultation є в scope і DoD.</li><li>Video subscription працює як admin-only content у початковій робочій версії платформи.</li></ul></div>
+      <div class="step-block"><h3>UX / responsive acceptance</h3><ul><li>Світлий, простий, довірливий, медично стриманий UI.</li><li>Уникати темного trust-reducing medical UI, неону, хаотичних градієнтів і “AI purple/pink” стилістики.</li><li>Не використовувати emoji як іконки; використовувати SVG icons.</li><li>Clickable elements мають cursor: pointer; hover transitions 150–300 ms.</li><li>Text contrast at least 4.5:1, visible keyboard focus states, support prefers-reduced-motion.</li><li>Main flows працюють на 375 / 768 / 1024 / 1440 px.</li></ul></div>
+    </div>
   </div>
 </section>
 
 <footer>
   <p><strong>MedPlatform · Актуалізований Discovery / Scope Record</strong><br>
-  <span style="font-size:.72rem;color:#4A6A80;">Погоджений робочий обсяг для V1 «версия один» · Оновлено після уточнення scope, фінансової логіки, реферальної системи та delivery-підходу</span></p>
+  <span style="font-size:.72rem;color:#4A6A80;">Погоджений робочий обсяг для початкової робочої версії платформи · Оновлено після уточнення scope, фінансової логіки, реферальної системи та delivery-підходу</span></p>
 </footer>
 
 </body>
